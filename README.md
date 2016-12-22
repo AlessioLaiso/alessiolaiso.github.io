@@ -24,7 +24,7 @@ This installs dependencies via `npm i` and clones the `master` branch into the `
 $ npm start
 ```
 
-This script starts a webserver will live-reload with `dist` as server root.
+This script starts a webserver using live-reload with `dist` as server root.
 
 ## Deploy
 
