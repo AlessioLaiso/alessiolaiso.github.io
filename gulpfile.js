@@ -84,9 +84,9 @@ gulp.task('reload', ['html'], function () {
  */
 gulp.task('watch', ['build'], function() {
   gulp.watch(['*.html'], ['reload']);
-  gulp.watch(['scss/**/*.scss'], ['sass']);
-  gulp.watch(['js/**/*.js'], ['js']);
-  gulp.watch(['images/**/*'], ['img']);
+  gulp.watch(['scss/**/*.scss'], ['sass', 'reload']);
+  gulp.watch(['js/**/*.js'], ['js','reload']);
+  gulp.watch(['images/**/*'], ['img','reload']);
 });
 
 gulp.task('default', ['build', 'connect', 'watch']);

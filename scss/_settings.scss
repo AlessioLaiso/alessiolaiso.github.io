@@ -118,7 +118,7 @@ $header-styles: (
   small: (
     'h1': ('font-size': 55),
     'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
+    'h3': ('font-size': 32),
     'h4': ('font-size': 24),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
@@ -126,7 +126,7 @@ $header-styles: (
   medium: (
     'h1': ('font-size': 63),
     'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
+    'h3': ('font-size': 36),
     'h4': ('font-size': 24),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
@@ -663,10 +663,10 @@ footer  {
         }*/
     }
     a {
-        -moz-transition: all .15s ease-in;
-        -o-transition: all .15s ease-in;
-        -webkit-transition: all .15s ease-in;
-        transition: all .15s ease-in;
+        -moz-transition: all .15s ease-out;
+        -o-transition: all .15s ease-out;
+        -webkit-transition: all .15s ease-out;
+        transition: all .15s ease-out;
         color: white;
     }
     a:hover {
@@ -777,7 +777,7 @@ footer  {
     -moz-transition: all .15s ease-out;
     -o-transition: all .15s ease-out;
     -webkit-transition: all .15s ease-out;
-    transition: all .15s ease-in;
+    transition: all .15s ease-out;
     h4 {
         margin-left: 1.5rem;
         font-family: $additional-font-family;
@@ -975,4 +975,237 @@ footer  {
 
 .spacer-home {
     margin-bottom: -7.7rem;
+}
+
+//Projects
+.hero-project {
+        background-color: $light-gray;
+}
+
+.hero-project {
+    h1 {
+        margin: 4.25rem 0 0.688rem 0;
+        @include breakpoint(medium) {
+            margin-top: 6.25rem;
+        }
+    }
+    p {
+        margin-bottom: 2.445rem;
+    }
+}
+
+.project-info {
+    h5 {
+        font-family: $additional-font-family;
+        padding-top: 1.62rem;
+        font-size: rem-calc(14);
+    }
+    p {
+        margin-top: -0.5rem;
+    }
+}
+
+.first-project-info {
+    background-image: url(/images/home/wave.svg);
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.project-main {
+    background-color: white;
+    padding-bottom: 3rem;
+}
+
+.project-story {
+    margin: 0 auto;
+    max-width: 40.625rem;
+    @media (max-width:50.625rem) and (min-width:41.875rem) {
+        max-width: 33rem;
+    }
+    small {
+        font-size: rem-calc(13);
+        color: $medium-gray;
+        line-height: 1rem;
+    }
+    h6 {
+        font-family: $additional-font-family;
+        color: $medium-gray;
+        margin: 1.6875rem 0 0.125rem 0;
+    }
+    h3 {
+        line-height: 2.75rem;
+        margin-bottom: 0.375rem;
+    }
+    p {
+        margin-bottom: 2.4375rem;
+    }
+    figcaption {
+        color: $medium-gray;
+        padding: 0.25rem 0 0.75rem 0;
+    }
+    a {
+        -moz-transition: all .15s ease-out;
+        -o-transition: all .15s ease-out;
+        -webkit-transition: all .15s ease-out;
+        transition: all .15s ease-out;
+        font-weight: 700;
+        color: $secondary-color;
+    }
+    a:hover {
+        color: $primary-color;
+        }
+}
+
+.first-spacer {
+    margin-bottom: 1rem;
+}
+
+    //Project nav
+    //Shared prev-next styles
+.project-nav {
+    background-color: #D1E6EE;
+}
+
+.project-nav-text {
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+    font-family: $additional-font-family;
+    color: $primary-color;
+    padding-top: 3rem;
+}
+
+.project-nav-title {
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+    color: $black;
+    margin-top: -1.25rem;
+    font-weight: 700;
+    font-size: rem-calc(16);
+    @include breakpoint(medium) {
+        font-size: 2rem;
+        font-family: $header-font-family;
+        font-weight: 900;
+    }
+}
+
+    //Prev styles
+.previous-project {
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+    @include breakpoint(medium) {
+        background-image: url(/images/home/previous.svg);
+        background-position: calc(0% + 1rem) 50%;
+        background-repeat: no-repeat;
+    }
+}
+
+.prev-nav-text {
+    @include breakpoint(medium) {
+        padding-left: 4.625rem;
+    }
+}
+
+.prev-title {
+    margin-bottom: 3rem;
+    @include breakpoint(medium) {
+        padding-left: 4.625rem;
+    }
+}
+
+.previous-project:hover { 
+    @include breakpoint(medium) {
+        background-color: #B9DEED; 
+    }
+}
+
+.previous-project:hover > .prev-nav-text { 
+    @include breakpoint(medium) {
+        padding-left: 3.625rem;
+    }
+}
+
+.previous-project:hover > .project-nav-title { 
+    @include breakpoint(medium) {
+        padding-left: 3.625rem;
+    }
+}
+
+    //Next styles
+.next-project {
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+    text-align: right;
+    background-color: #B9DEED;
+    @include breakpoint(medium) {
+        background-image: url(/images/home/next.svg);
+        background-position: calc(100% - 1rem) 50%;
+        background-repeat: no-repeat;
+        background-color: #D1E6EE;
+        }
+}
+
+.next-nav-text {
+    @include breakpoint(medium) {
+    padding-right: 4.625rem;
+    }
+}
+
+.next-title {
+    margin-bottom: 3rem;
+    @include breakpoint(medium) {
+    padding-right: 4.625rem;
+    }
+}
+
+.next-project:hover { 
+    @include breakpoint(medium) {
+        background-color: #B9DEED;
+    }
+}
+
+.next-project:hover > .next-nav-text { 
+    @include breakpoint(medium) {
+        padding-right: 3.625rem;
+    }
+}
+
+.next-project:hover > .next-title { 
+    @include breakpoint(medium) {
+        padding-right: 3.625rem;
+    }
+}
+
+//IBM
+
+.ibm-project.project-info{
+    img {
+        margin: 0 0 -2rem 0;
+    }
+}
+
+.ibm-project.project-story {
+    padding-top: 4.375rem;
+}
+
+.ibm-project {
+    h3 span {
+        text-decoration: line-through;
+        color: $medium-gray;
+    }
+}
+
+.large-img-ibm {
+    width: 100%;
+    background-color: white;   
+    img {
+        margin: -3rem 0 0 0;
+    }
 }
