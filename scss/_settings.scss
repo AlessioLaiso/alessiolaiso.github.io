@@ -631,6 +631,10 @@ $topbar-unstack-breakpoint: small;
     font-family: $font-family-monospace;
     color: $secondary-color;
     font-weight: $additional-font-weight;
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out;
     span {
         text-decoration: underline;
     }
@@ -1060,7 +1064,7 @@ footer  {
     margin-bottom: 1rem;
 }
 
-    //Project nav
+    //Project botttom nav
     //Shared prev-next styles
 .project-nav {
     background-color: #D1E6EE;
@@ -1127,12 +1131,14 @@ footer  {
 .previous-project:hover > .prev-nav-text { 
     @include breakpoint(medium) {
         padding-left: 3.625rem;
+        padding-right: 1rem;
     }
 }
 
 .previous-project:hover > .project-nav-title { 
     @include breakpoint(medium) {
         padding-left: 3.625rem;
+        padding-right: 1rem;
     }
 }
 
@@ -1174,12 +1180,14 @@ footer  {
 .next-project:hover > .next-nav-text { 
     @include breakpoint(medium) {
         padding-right: 3.625rem;
+        padding-left: 1rem;
     }
 }
 
 .next-project:hover > .next-title { 
     @include breakpoint(medium) {
         padding-right: 3.625rem;
+        padding-left: 1rem;
     }
 }
 
@@ -1192,7 +1200,10 @@ footer  {
 }
 
 .ibm-project.project-story {
-    padding-top: 4.375rem;
+    padding-top: 2.5rem;
+    @include breakpoint(large) {
+        padding-top: 4.375rem;
+    }
 }
 
 .ibm-project {
@@ -1208,4 +1219,37 @@ footer  {
     img {
         margin: -3rem 0 0 0;
     }
+}
+
+//Runtastic
+
+.runtastic-project.project-info{
+    img {
+        max-width: 17.06rem;
+        align-content: right;
+        margin: -14.06rem 0 -5.375rem 5.5rem;
+    }
+}
+
+.runtastic-project.project-story {
+    padding-top: 2.5rem;
+    @include breakpoint(large) {
+        padding-top: 4.375rem;
+    }
+}
+
+p.runtastic-leaderboard-img {
+    margin: 1.5rem 0;
+}
+
+.runtastic-pattern-img {
+    margin: 2rem 0 1.5rem 0;
+}
+
+.runtastic-grid-img {
+    margin-top: 1.5rem;
+}
+
+.runtastic-london-img {
+    margin: 1.5rem 0 1.5rem 0;
 }
