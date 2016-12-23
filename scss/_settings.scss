@@ -626,6 +626,9 @@ $topbar-unstack-breakpoint: small;
 
 //Global
 
+::-moz-selection { background: $secondary-color; color: black; }
+::selection { background: $secondary-color; color: black; }
+
     // Top-nav
 .top-bar a {
     font-family: $font-family-monospace;
@@ -837,6 +840,9 @@ footer  {
         background-image: url(/images/home/wave-alt.svg);
         background-position: left top;
         background-repeat: no-repeat;
+    }
+    p {
+        color: $black;
     }
 }
 
@@ -1060,11 +1066,15 @@ footer  {
         }
 }
 
+.p-between-img { //to space paragraphs between two images
+    margin-top: 1.5rem;
+}
+
 .first-spacer {
     margin-bottom: 1rem;
 }
 
-    //Project botttom nav
+    //Project bottom nav
     //Shared prev-next styles
 .project-nav {
     background-color: #D1E6EE;
@@ -1226,7 +1236,6 @@ footer  {
 .runtastic-project.project-info{
     img {
         max-width: 17.06rem;
-        align-content: right;
         margin: -14.06rem 0 -5.375rem 5.5rem;
     }
 }
@@ -1246,10 +1255,42 @@ p.runtastic-leaderboard-img {
     margin: 2rem 0 1.5rem 0;
 }
 
-.runtastic-grid-img {
-    margin-top: 1.5rem;
+.runtastic-london-img {
+    margin: 1.5rem 0;
 }
 
-.runtastic-london-img {
-    margin: 1.5rem 0 1.5rem 0;
+//Libra
+.libra-project.project-info{
+    img {
+        max-width: 20.06rem;
+        margin: -15.06rem 0 -3rem 5.5rem;
+    }
+}
+
+.libra-project.project-story {
+    padding-top: 2.5rem;
+    @include breakpoint(large) {
+        padding-top: 3.375rem;
+    }
+}
+
+.libra-animation {
+    img {
+        max-width: 60%;
+        margin-left: 20%;
+    }
+    @include breakpoint(medium) {
+        figcaption {
+            text-align: center;
+        }
+    }
+}
+
+.libra-reviews {
+    max-width: 80%;
+    @include breakpoint(medium) {
+        img {
+            max-width: 24.94rem;
+        }
+    }
 }
