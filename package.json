@@ -6,15 +6,20 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
+    "gulp-html-replace": "^1.6.2",
     "gulp-load-plugins": "^1.1.0",
     "gulp-minify": "0.0.14",
-    "gulp-sass": "^2.1.0"
+    "gulp-sass": "^2.1.0",
+    "main-bower-files": "^2.13.1",
+    "run-sequence": "^1.2.2"
   },
   "scripts": {
     "build": "gulp build",
-    "start": "gulp"
+    "start": "gulp",
+    "deploy": "gulp deploy"
   },
   "repository": {
     "type": "git",

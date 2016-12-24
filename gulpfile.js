@@ -1,8 +1,12 @@
-var gulp    = require('gulp');
-var minify  = require('gulp-minify');
-var $       = require('gulp-load-plugins')();
-var gulp    = require('gulp');
-var connect = require('gulp-connect');
+var gulp        = require('gulp');
+var minify      = require('gulp-minify');
+var $           = require('gulp-load-plugins')();
+var concat      = require('gulp-concat');
+var connect     = require('gulp-connect');
+var clean       = require('gulp-clean');
+var replace     = require('gulp-ext-replace');
+var runSequence = require('run-sequence');
+var bowerFiles  = require('main-bower-files');
 
 var sassPaths = [
   'bower_components/normalize.scss/sass',
@@ -30,14 +34,18 @@ gulp.task('sass', function() {
  * Minify js files and copy them to dist/js folder.
  */
 gulp.task('js', function() {
-  return gulp.src([
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/what-input/dist/what-input.js',
-      'bower_components/foundation-sites/dist/js/foundation.js',
-      'js/app.js'
-    ])
-    .pipe(minify({ noSource: true, ext: { min: '.min.js' } }))
-    .pipe(gulp.dest('dist/js/'));
+  return gulp.src(bowerFiles({ filter: /^.*.js$/ }).concat('js/app.js'))
+    .pipe(minify({ noSource: true }))
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('dist/js'));
+});
+
+/**
+ * Copy the downloaded files.
+ */
+gulp.task('download', function() {
+  return gulp.src('downloads/**/*')
+    .pipe(gulp.dest('dist/downloads'));
 });
 
 /**
@@ -59,7 +67,22 @@ gulp.task('img', function() {
 /**
  * Builds all assets.
  */
-gulp.task('build', ['sass', 'js', 'html', 'img']);
+gulp.task('build', ['download', 'sass', 'js', 'html', 'img']);
+
+/**
+ * Clean dist folder.
+ */
+gulp.task('clean', function () {
+  return gulp.src('dist/*', { read: false })
+    .pipe(clean({ force: true }));
+});
+
+/**
+ * Clean and build the website.
+ */
+gulp.task('deploy', function(done) {
+  return runSequence('clean', 'build', done);
+});
 
 /**
  * Starts a web server within dist folder.
@@ -67,7 +90,17 @@ gulp.task('build', ['sass', 'js', 'html', 'img']);
 gulp.task('connect', ['build'], function() {
   connect.server({
     root: 'dist',
-    livereload: true
+    livereload: true,
+    middleware: function(connect, opt) {
+      return [
+        function(req, res, next) {
+          if (!req.url.match(/^\/(|.*\..*)$/)) {
+            req.url = req.url + ".html";
+          }
+          next();
+        }
+      ]
+    }
   });
 });
 
@@ -83,6 +116,7 @@ gulp.task('reload', ['html'], function () {
  * Watch files and recompile assets when any file is updated.
  */
 gulp.task('watch', ['build'], function() {
+  gulp.watch(['download/**/*'], ['download', 'reload']);
   gulp.watch(['*.html'], ['reload']);
   gulp.watch(['scss/**/*.scss'], ['sass', 'reload']);
   gulp.watch(['js/**/*.js'], ['js','reload']);

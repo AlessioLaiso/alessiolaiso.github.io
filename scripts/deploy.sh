@@ -6,7 +6,11 @@ set -e
 if [ ! -d "dist/.git" ]; then
   ./setup.sh
 fi
-npm run build
+cd dist
+git fetch
+git reset --hard origin/master
+cd ..
+npm run deploy
 cd dist
 git add -A
 git commit -m "Deployed on $(date -u -R)"
