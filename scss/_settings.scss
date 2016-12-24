@@ -1294,3 +1294,32 @@ p.runtastic-leaderboard-img {
         }
     }
 }
+
+//Aleo
+
+.aleo-download-link {
+    font-weight: 700;
+    color: $secondary-color;
+    -moz-transition: all .15s ease-out;
+    -o-transition: all .15s ease-out;
+    -webkit-transition: all .15s ease-out;
+    transition: all .15s ease-out;
+}
+
+.aleo-project.project-info{
+    img {
+        max-width: 18.875rem;
+        margin: -10.7rem 0 -3rem 5.5rem;
+    }
+    p {
+        padding-bottom: 2rem;
+    }
+}
+
+.aleo-project.project-story {
+    padding-top: 2.5rem;
+}
+
+.aleo-between-img {
+    margin-top: 2rem;
+}
