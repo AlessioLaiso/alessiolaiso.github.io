@@ -34,7 +34,7 @@ gulp.task('sass', function() {
  * Minify js files and copy them to dist/js folder.
  */
 gulp.task('js', function() {
-  return gulp.src(bowerFiles({ filter: /^.*.js$/ }).concat('js/app.js'))
+  return gulp.src(bowerFiles({ filter: /^.*.js$/ }).concat('js/*.js'))
     .pipe(minify({ noSource: true }))
     .pipe(concat('app.js'))
     .pipe(gulp.dest('dist/js'));
