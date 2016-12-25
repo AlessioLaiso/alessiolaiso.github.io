@@ -4,7 +4,7 @@ var $           = require('gulp-load-plugins')();
 var concat      = require('gulp-concat');
 var connect     = require('gulp-connect');
 var clean       = require('gulp-clean');
-var replace     = require('gulp-ext-replace');
+/*var replace     = require('gulp-ext-replace');*/
 var runSequence = require('run-sequence');
 var bowerFiles  = require('main-bower-files');
 

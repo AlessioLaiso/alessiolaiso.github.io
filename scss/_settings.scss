@@ -1070,6 +1070,10 @@ footer  {
     margin-top: 1.5rem;
 }
 
+.img-between-img {
+    margin-top: 2rem;
+}
+
 .first-spacer {
     margin-bottom: 1rem;
 }
@@ -1320,6 +1324,50 @@ p.runtastic-leaderboard-img {
     padding-top: 2.5rem;
 }
 
-.aleo-between-img {
-    margin-top: 2rem;
+//Aleo
+
+.planet-project.project-info{
+    @media only screen and (max-width: 41.875em) {
+            padding-bottom: 2rem;
+        }
+    img {
+        max-width: 18.875rem;
+        margin: -12.8875rem 0 -4rem 0;
+    }
+    p {
+        @media only screen and (max-width: 41.875em) {
+            margin-bottom: 0.2rem;
+        }
+        @include breakpoint(medium) {
+        padding-bottom: 2rem;
+        }
+    }
+}
+
+.planet-project.project-story {
+    padding-top: 2.5rem;
+}
+
+.planet-narrow-img {
+    img {
+        max-width: 70%;
+        margin-left: 15%;
+    }
+}
+
+//Sleep better
+.sleep-project.project-info{
+    img {
+        max-width: 24.4375rem;
+        margin: -14.685rem 0 0 5.1rem;
+    }
+}
+
+.sleep-project.project-story {
+    padding-top: 2.5rem;
+}
+
+.sleep-video {
+    max-width: 55%;
+    margin-left: 22.5%;
 }
