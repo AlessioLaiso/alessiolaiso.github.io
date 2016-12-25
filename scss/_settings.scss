@@ -1391,7 +1391,7 @@ p.runtastic-leaderboard-img {
 //404
 .notfound-page {
     h6 {
-        padding-top: 4.5rem;
+        padding-top: 3rem;
     }
     video {
         width: 100%;
@@ -1399,5 +1399,11 @@ p.runtastic-leaderboard-img {
 }
 
 .notfound-page.footer-background {
-    margin-top: -2rem;
+    margin-top: 6rem;
+}
+
+.notfound-page {
+    nav {
+        margin-top: 1.8rem;        
+    }
 }
