@@ -3,13 +3,7 @@
 
 set -e
 
-if [ ! -d "dist/.git" ]; then
-  ./setup.sh
-fi
-cd dist
-git fetch
-git reset --hard origin/master
-cd ..
+./scripts/setup.sh
 npm run deploy
 cd dist
 git add -A

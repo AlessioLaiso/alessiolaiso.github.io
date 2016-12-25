@@ -6,10 +6,12 @@ set -e
 npm i
 bower install
 mkdir -p dist
-rm -Rf dist/*
 if [ -d "dist/.git" ]; then
+  rm -Rf dist/*
   cd dist
+  git fetch
   git reset --hard origin/master
 else
+  rm -Rf dist
   git clone git@github.com:AlessioLaiso/alessiolaiso.github.io.git -b master --single-branch dist
 fi
