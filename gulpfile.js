@@ -4,7 +4,6 @@ var $           = require('gulp-load-plugins')();
 var concat      = require('gulp-concat');
 var connect     = require('gulp-connect');
 var clean       = require('gulp-clean');
-/*var replace     = require('gulp-ext-replace');*/
 var runSequence = require('run-sequence');
 var bowerFiles  = require('main-bower-files');
 
@@ -14,11 +13,19 @@ var sassPaths = [
   'bower_components/motion-ui/src'
 ];
 
+var seq = function() {
+  var args = Array.prototype.slice.call(arguments);
+
+  return function(){
+    return runSequence.apply(null, args);
+  };
+};
+
 /**
  * Precompile scss/sass files into dist/css/app.css.
  */
 gulp.task('sass', function() {
-  return gulp.src('scss/app.scss')
+  return gulp.src(['scss/app.scss'])
     .pipe($.sass({
       includePaths: sassPaths,
       outputStyle: 'compressed'
@@ -80,9 +87,7 @@ gulp.task('clean', function () {
 /**
  * Clean and build the website.
  */
-gulp.task('deploy', function(done) {
-  return runSequence('clean', 'build', done);
-});
+gulp.task('deploy', seq('clean', 'build'));
 
 /**
  * Starts a web server within dist folder.
@@ -96,6 +101,10 @@ gulp.task('connect', ['build'], function() {
         function(req, res, next) {
           if (!req.url.match(/^\/(|.*\..*)$/)) {
             req.url = req.url + ".html";
+          }
+          var path = "dist" + req.url
+          if(!require('fs').existsSync(path)){
+            req.url = "/404.html";
           }
           next();
         }
@@ -116,11 +125,11 @@ gulp.task('reload', ['html'], function () {
  * Watch files and recompile assets when any file is updated.
  */
 gulp.task('watch', ['build'], function() {
-  gulp.watch(['download/**/*'], ['download', 'reload']);
+  gulp.watch(['download/**/*'], seq('download', 'reload'));
   gulp.watch(['*.html'], ['reload']);
-  gulp.watch(['scss/**/*.scss'], ['sass', 'reload']);
-  gulp.watch(['js/**/*.js'], ['js','reload']);
-  gulp.watch(['images/**/*'], ['img','reload']);
+  gulp.watch(['scss/**/*.scss'], seq('sass', 'reload'));
+  gulp.watch(['js/**/*.js'], seq('js','reload'));
+  gulp.watch(['images/**/*'], seq('img','reload'));
 });
 
 gulp.task('default', ['build', 'connect', 'watch']);
