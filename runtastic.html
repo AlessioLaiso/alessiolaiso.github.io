@@ -54,10 +54,10 @@
     <section class="project-main small-12 columns">
         <div class="project-story runtastic-project">
             <h6>My role and the team</h6>
-            <h3>Running ahead of the competition</h3>
+            <h3 id="running-ahead">Running ahead of the competition</h3>
             <p>Health and fitness is an extremely competitive space for mobile apps. In a team of four, I was one of the two designers who mostly focused on the Android version of Runtastic. I was also involved in cross-platform user research and user experience discussions, as well as producing designs for A/B testing on iOS and assets like icons and illustrations. We were constantly working on the Runtastic app to further refine the UX and polish the UI, to keep the app an industry leader.</p>
             <h6>Kudos</h6>
-            <h3>Award-winning design</h3>
+            <h3 id="award-winning-design">Award-winning design</h3>
             <p>Shortly after I started working at Runtastic, the company launched the Material Design overhaul of the flagship app. In the following months, we received some feedback from Google and I took the responsibility of redesigning some of the screens as well as designing some news ones. The newly introduced running leaderboard, for example, added an important social element that significantly increased user engagement.</p>
             <figure>
                 <img src="images/runtastic/runtastic-leaderboard.png" alt="The running leaderboard as it appears on Android devices">
@@ -69,7 +69,7 @@
                 <figcaption>Runtastic was included in the Material Design Showcase at Google I/O 2015 (bottom left) and is the top health and fitness app in many markets (right).</figcaption>
             </figure>
             <h6>Icons and illustrations</h6>
-            <h3>Finding a consistent voice</h3>
+            <h3 id="finding-a-consistent-voice">Finding a consistent voice</h3>
             <p>Runtastic’s imagery was quite inconsistent when I joined the company. During my time there I produced many illustrations, mostly to be used in the apps, and I led the team effort to find a new style that could be easily used by everyone in the team in a consistent way.</p>
             <figure>
                 <img src="images/runtastic/runtastic-illustrations.png" alt="Three illustrations: one with a podium, one with a beach and a volley-ball net, one with a phone with earphones">
@@ -89,7 +89,7 @@
                 <figcaption>All the icons from the redesigned set are based on a 48px grid and share common visual traits.</figcaption>
             </figure>
             <h6>Important featurings</h6>
-            <h3>More love from Google and Facebook</h3>
+            <h3 id="more-love">More love from Google and Facebook</h3>
             <p>In the Spring of 2015 Google UK launched a campaign for Android with the slogan “Be together. Not the same.” Runtastic had a huge featuring in this, and I worked to provide assets for printed billboards, Android.com, promotional videos, and more.</p>
             <figure>
                 <img src="images/runtastic/runtastic-android-com.png" alt="The Android site featuring Runtastic on the home page">
@@ -129,5 +129,19 @@ Libra for Android</p>
     </footer>
     <!-- Scripts -->
     <script src="js/app.js"></script>
+    <script>
+        ProjectTracker(
+          $,
+          {
+            project: 'runtastic',
+            elements: [
+              '#running-ahead',
+              '#award-winning-design',
+              '#finding-a-consistent-voice',
+              '#more-love'
+            ]
+          }
+        ).track();
+    </script>
   </body>
 </html>

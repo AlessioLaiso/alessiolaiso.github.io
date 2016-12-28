@@ -53,15 +53,15 @@
     <!-- Story -->
     <section class="project-main small-12 columns">
         <div class="project-story aleo-project">
-            <h6>Challenges and goals</h6>
+            <h6 id="challenges-and-goals">Challenges and goals</h6>
             <h3>If you need something, make it</h3>
             <p>Slab serif typefaces saw a great surge in the last few years. In 2013, though, there were none coming in a large family available as free and open source fonts. This is why I decided to work on a slab typeface, aiming to build a complete family with a good legibility and a sleek, personal look at the same time.</p>
             <figure>
                 <img src="images/aleo/Aleo_fontforge.png" alt="Screenshots of Aleo open in Fontforge.">
                 <figcaption>Aleo in the works in <a href="https://fontforge.github.io" target="_blank">FontForge</a>, the open source font editor.</figcaption>
             </figure>
-            <h6>Design process</h6>
-            <h3>Learning and sharing</h3>
+            <h6 id="design-process">Design process</h6>
+            <h3 id="learning-and-sharing">Learning and sharing</h3>
             <p>I had played around with some fonts before Aleo, but I had never really worked on a full typeface. To get a head start and to help with my little experience, I decided to start off from an existing font.  I eventually chose the sans-serif Lato font family, released under the SIL Open Font license, for the final slab design. The same open source license is used for Aleo.</p>
             <figure>
                 <img src="images/aleo/aleo-1.png" alt="A sample of Aleo">
@@ -75,8 +75,8 @@
                 <img src="images/aleo/aleo-just-eat.jpg" alt="Just Eat using Aleo on books, billboards and vehicles">
                 <figcaption>The custom version of Aleo I made for Just Eat has been used in variety of ways.</figcaption>
             </figure>
-            <h6>Outcomes</h6>
-            <h3>Exceeding expectations</h3>
+            <h6 id="outcome">Outcomes</h6>
+            <h3 id="exceeding-expectations">Exceeding expectations</h3>
             <p>There is something unique about type design: a typeface is a fully accomplished work of design, but unlike most forms design, a typeface is something that you make, have full ownership on, but that then others take and use to make countless new pieces of design. It becomes a tool, a work of design that generates other design and transports new meanings. Aleo not only made me grow as a designer: it’s been been a great success. After the original launch on Behance, many design sites have talked about it and featured it, including Smashing Magazine, Font Squirrel and Fontfabric. Today, Aleo counts about 400.000 downloads and has been used by brands such as eBay, USA Today, Amazon and 7-Eleven.</p>
             <figure>
                 <img src="images/aleo/aleo-ebay.png" alt="A screenshot of eBay">
@@ -133,5 +133,20 @@
     </footer>
     <!-- Scripts -->
     <script src="js/app.js"></script>
+    <script>
+        ProjectTracker(
+          $,
+          {
+            project: 'aleo-font',
+            elements: [
+              '#challenges-and-goals',
+              '#design-process',
+              '#learning-and-sharing',
+              '#outcome',
+              '#exceeding-expectations'
+            ]
+          }
+        ).track();
+    </script>
   </body>
 </html>
