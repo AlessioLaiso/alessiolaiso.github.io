@@ -7,6 +7,7 @@ var clean       = require("gulp-clean");
 var runSequence = require("run-sequence");
 var bowerFiles  = require("main-bower-files");
 var ghPages     = require("gulp-gh-pages");
+var htmlmin     = require('gulp-htmlmin');
 
 var deploy = false;
 var sassPaths = [
@@ -72,8 +73,17 @@ gulp.task("download", function() {
  * Copy the html files to the dist folder.
  */
 gulp.task("html", function() {
-  return gulp.src(["*.html", "CNAME"])
-    .pipe(gulp.dest("dist/"));
+  var task = gulp.src(["*.html", "CNAME"]);
+  if(deploy){
+    task = task.pipe(htmlmin({
+      minifyJS: true,
+      removeComments: true,
+      collapseWhitespace: true
+    }));
+  }else{
+    task = task.pipe(htmlmin({ removeComments: true }));
+  }
+  return task.pipe(gulp.dest("dist/"));
 });
 
 /**
