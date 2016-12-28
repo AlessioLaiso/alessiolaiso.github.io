@@ -53,14 +53,14 @@
     <section class="project-main small-12 columns">
         <div class="project-story ibm-project">
             <small>To comply with my non-disclosure agreement, I am not allowed to show more of the products I am working on. The thoughts on this page are my own and do not necessarily reflect the views of IBM.</small>
-            <h6>Design research</h6>
+            <h6 id="design-research">Design research</h6>
             <h3>Software <span>with great features</span> focusing on user outcomes</h3>
             <p>As a designer in the IBM Security team, most of the software I work on is in the complex space of cybersecurity. Designing for the highly specialized users who use our products makes it hard to guess what features would work well, and highlights the importance of design research.<br> <br>Together with my team, we define research objectives, conduct secondary research (articles about the space, competitor analysis, etc.), and run many rounds of user interviews. These interviews help us find the real pain points of our users, validate our assumptions, and test the usability of our designs. We also have plenty of calls with experts in different areas — technical, legal, etc. —  to make sure our solutions are feasible and to improve them at each iteration.</p>
             <figure>
                 <img src="images/ibm/empathy-map.jpg" alt="An empathy map full of post-it notes">
                 <figcaption>Let me introduce you to Janice — and her empathy map.</figcaption>
             </figure>
-            <h6>Culture and collaboration</h6>
+            <h6 id="culture-and-collaboration">Culture and collaboration</h6>
             <h3>Getting engineers to speak design</h3>
             <p>“We know what (features) we want” is an attitude that can easily lead teams to forget what the users really need. Part of what I feel is our job as ambassadors of design in a large enterprise is getting the whole team to fully understand the value of design thinking.<br> <br>
 
@@ -70,7 +70,7 @@
                 <img src="images/ibm/hursley.jpg" alt="Four IBM employess giving a presentation at a conference">
                 <figcaption>For a side project, I introduced this group of non-designers to design thinking. The impact has been incredible.</figcaption>
             </figure>
-            <h6>Visual design</h6>
+            <h6 id="visual-design">Visual design</h6>
             <h3>Software for security professionals can look beautiful too</h3>
             <p>When it comes to visual design, as a designer in IBM Security I use both the IBM Design Language and the IBM Security Design Guide. Both these resources are living languages: I often prototype, test, and discuss new patterns with the rest of the team to further refine our tools. In addition to this, my passion for typography and semi-obsession for baseline grids and pixel perfection always makes me very happy to talk anything related to visual design.</p>
             <figure class="first-spacer">
@@ -81,14 +81,14 @@
                 <img src="images/ibm/grid.png" alt="Screenshot from an IBM Security product with all elements aligning to a grid">
                 <figcaption>Told you I love pixel-perfect designs with precise baseline alignments.</figcaption>
             </figure>
-            <h6>Sharing knowledge</h6>
+            <h6 id="sharing-knowledge">Sharing knowledge</h6>
             <h3>Being a design ambassador inside and outside IBM</h3>
             <p>With so much going on in design at IBM, there are many opportunities to share knowledge and tell the tale — if you're willing to. I've had the pleasure to lead many design thinking workshops for a range of people that goes from IBM engineers to 15-year-old students. I also had the chance to be a speaker at a couple of conferences. At UX Ireland I presented a study I conducted about how typography can influence user experience, and I was overwhelmed with the response. A blog post with the key findings from that study is coming very soon.</p>
             <figure>
                 <img src="images/ibm/UX-Ireland.jpg" alt="Me speaking at a conference in a room full of people, with type elements on the screens">
                 <figcaption>That’s me speaking at UX Ireland in November 2016. Photo: Lara Hanlon.</figcaption>
             </figure>
-            <h6>Inventions</h6>
+            <h6 id="inventions">Inventions</h6>
             <h3>Innovation through design</h3>
             <p>For over 20 consecutive years, IBM has been topping the annual list of U.S. patent recipients (yes, IBMers are quite smart). Designers at IBM are also making their contribution, and two invention disclosures I worked on with my team have been published on ip.com (you can check them out <a href="http://priorart.ip.com/IPCOM/000246651D" target="_blank">here</a> and <a href="http://priorart.ip.com/IPCOM/000247817D" target="_blank">here</a>).</p>
         <figure>
@@ -113,7 +113,7 @@
     <footer class="expanded row align-justify align-middle unstack-medium">
         <div class="mail-footer small-9 columns">
             <p class="get-in-touch">Get in touch:</p>
-            <a href="mailto:hello@alessiolaiso.com">hello@alessiolaiso.com</a>
+            <a id="mail" href="mailto:hello@alessiolaiso.com">hello@alessiolaiso.com</a>
         </div>
         <div class="social-home">
                 <a href="https://www.linkedin.com/in/alessiolaiso" target='_blank' class="social-icons linkedin-icon"><img src="/images/home/linkedin.svg" alt="LinkedIn"></a>
@@ -124,5 +124,20 @@
     </footer>
     <!-- Scripts -->
     <script src="js/app.js"></script>
+    <script>
+        ProjectTracker(
+          $,
+          {
+            project: 'ibm',
+            elements: [
+              '#design-research',
+              '#culture-and-collaboration',
+              '#visual-design',
+              '#sharing-knowledge',
+              '#inventions'
+            ]
+          }
+        ).track();
+    </script>
   </body>
 </html>
