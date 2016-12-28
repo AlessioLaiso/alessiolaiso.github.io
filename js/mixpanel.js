@@ -56,7 +56,7 @@ var ProjectTracker = function($, opts){
 
   $(window).on("beforeunload", function(){
     if(started && !done){
-      trackEvent("abort", { percent: percent, duration: elapsedTime() });
+      trackEvent("abort", { duration: elapsedTime() });
     }
   });
 
