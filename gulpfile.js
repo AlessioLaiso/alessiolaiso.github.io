@@ -110,7 +110,7 @@ gulp.task("prepare-deploy", function(done){
  */
 gulp.task("deploy", ["prepare-deploy"], function(){
   return gulp.src("./dist/**/*")
-    .pipe(ghPages({branch: "master", message: "Deployed on [timestamp]"}));
+    .pipe(ghPages({ branch: "master", message: "Deployed on " + new Date().toString() }));
 });
 
 /**
