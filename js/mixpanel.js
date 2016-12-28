@@ -17,6 +17,7 @@ $(function(){
       mixpanel.track(event);
     }
   };
+  $("#mail").click(trackCb("link:click:mail"));
   $(".linkedin-icon").click(trackCb("link:click:linkedin"));
   $(".twitter-icon").click(trackCb("link:click:twitter"));
 });
