@@ -6,6 +6,7 @@ var connect     = require('gulp-connect');
 var clean       = require('gulp-clean');
 var runSequence = require('run-sequence');
 var bowerFiles  = require('main-bower-files');
+var ghPages     = require('gulp-gh-pages');
 
 var sassPaths = [
   'bower_components/normalize.scss/sass',
@@ -15,9 +16,8 @@ var sassPaths = [
 
 var seq = function() {
   var args = Array.prototype.slice.call(arguments);
-
-  return function(){
-    return runSequence.apply(null, args);
+  return function(done){
+    return runSequence.apply(null, args.concat([done]));
   };
 };
 
@@ -59,7 +59,7 @@ gulp.task('download', function() {
  * Copy the html files to the dist folder.
  */
 gulp.task('html', function() {
-  return gulp.src(['*.html', "CNAME"])
+  return gulp.src(['*.html', 'CNAME'])
     .pipe(gulp.dest('dist/'));
 });
 
@@ -87,7 +87,15 @@ gulp.task('clean', function () {
 /**
  * Clean and build the website.
  */
-gulp.task('deploy', seq('clean', 'build'));
+gulp.task('prepare-deploy', seq('clean', 'build'));
+
+/**
+ * Deploys the website.
+ */
+gulp.task('deploy', ['prepare-deploy'], function(){
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages({branch: 'master', message: 'Deployed on [timestamp]'}));
+});
 
 /**
  * Starts a web server within dist folder.
@@ -100,11 +108,11 @@ gulp.task('connect', ['build'], function() {
       return [
         function(req, res, next) {
           if (!req.url.match(/^\/(|.*\..*)$/)) {
-            req.url = req.url + ".html";
+            req.url = req.url + '.html';
           }
-          var path = "dist" + req.url
+          var path = 'dist' + req.url
           if(!require('fs').existsSync(path)){
-            req.url = "/404.html";
+            req.url = '/404.html';
           }
           next();
         }

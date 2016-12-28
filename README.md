@@ -1,5 +1,6 @@
-# portfolio
-My portfolio site
+# alessiolaiso.github.io
+
+alessiolaiso.com
 
 ## Repository setup
 
@@ -16,7 +17,7 @@ This branch is used by github pages for deployment.
 $ ./scripts/setup.sh
 ```
 
-This installs dependencies via `npm i` and clones the `master` branch into the `dist` folder.
+This installs dependencies via `npm i` and `bower i`.
 
 ## Running
 
