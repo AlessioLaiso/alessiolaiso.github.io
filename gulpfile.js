@@ -59,7 +59,7 @@ gulp.task('download', function() {
  * Copy the html files to the dist folder.
  */
 gulp.task('html', function() {
-  return gulp.src('*.html')
+  return gulp.src(['*.html', "CNAME"])
     .pipe(gulp.dest('dist/'));
 });
 
