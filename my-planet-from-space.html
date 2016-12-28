@@ -57,14 +57,14 @@
     <!-- Story -->
     <section class="project-main small-12 columns">
         <div class="project-story planet-project">
-            <h6>The vision</h6>
+            <h6 id="the-vision">The vision</h6>
             <h3>Celebrating sustainability and technology</h3>
             <p>On the occasion of its 50th anniversary, the European Space Agency (ESA) wanted to make an exhibition out of its satellite images, to increase awareness towards a more sustainable lifestyle and highlight the potential of space technology. The selected location was Palazzo delle Esposizioni, the largest interdisciplinary exhibition area in the centre of Rome.</p>
             <figure class="planet-narrow-img">
                 <img src="images/my-planet-from-space/my-planet-space-poster.jpg" alt="The poster of the exhibition hanging between marble columns">
                 <figcaption>The poster of the exhibition at the entrance of the Palazzo delle Esposizioni, Rome.</figcaption>
             </figure>
-            <h6>My role and the team</h6>
+            <h6 id="my-role-and-the-team">My role and the team</h6>
             <h3>An agile and multidisciplinary team</h3>
             <p>I was the lead designer for the exhibition held in Rome (Palazzo delle Esposizioni, Sep–Nov 2014) and its identity, including posters and flyers. I worked together with the art director M. Rullo, another designer, and an architect, in addition to the curator from ESA.</p>
             <figure>
@@ -76,7 +76,7 @@
                 <img src="images/my-planet-from-space/my-planet-space-deserts.jpg" alt="The section about deserts of the exhibition, with a cretto-like installation and satellite photos">
                 <figcaption>The section about deserts of the exhibition in Rome, featuring an installation by the artist and designer Marco Vagnini.</figcaption>
             </figure>
-            <h6>The exhibition</h6>
+            <h6 id="the-exhibition">The exhibition</h6>
             <h3>Fragility and beauty of the Earth</h3>
             <p>The exhibition revolves around the opposition of fragility and beauty of the planet, and is divided into six main areas: Ice, Water, Atmosphere, Forests and Agriculture, Deserts, and Cities. To make the exhibition more engaging for a younger audience, we decided to use an array of different media, including interactive installations, scale models of satellites, and videos, in addition to the large satellite images ESA provided us with.</p>
             <figure>
@@ -92,7 +92,7 @@
                 <img src="images/my-planet-from-space/my-planet-space-forests-ny.jpg" alt="Satellite photos in the forests section of the exhibition">
                 <figcaption>The section about forests of the exhibition in New York.</figcaption>
             </figure>
-            <h6>Outcomes</h6>
+            <h6 id="outcomes">Outcomes</h6>
             <h3>An international success story</h3>
             <p>The exhibition in Rome was really appreciated by the public and covered extensively in the press. After I left Vertigo Design, the exhibition was adapted for the National Museum of Science and Technology in Milan (during Expo 2015), the United Nations Headquarters in New York (Jul–Sep 2015), and the Palais de la Découverte in Paris (Dec 2015–Jun 2016).</p>
             <figure>
@@ -105,6 +105,7 @@
                 <figcaption>The entrance of the Palazzo delle Esposizioni in Rome.</figcaption>
             </figure>
             <small>All the photos on this page are by Vertigo Design and F. Costantini.</small>
+        </div>
     </section>
     <!-- Project nav -->
     <nav class="project-nav expanded row">
@@ -132,5 +133,19 @@
     </footer>
     <!-- Scripts -->
     <script src="js/app.js"></script>
+    <script>
+        ProjectTracker(
+          $,
+          {
+            project: 'my-planet-from-space',
+            elements: [
+              '#the-vision',
+              '#my-role-and-the-team',
+              '#the-exhibition',
+              '#outcomes'
+            ]
+          }
+        ).track();
+    </script>
   </body>
 </html>

@@ -49,36 +49,37 @@
     <!-- Story -->
     <section class="project-main small-12 columns">
         <div class="project-story print-project">
-            <h6>Publication proposal</h6>
+            <h6 id="annual-report-rai">Publication proposal</h6>
             <h3>Annual report proposal for RAI, Italian television</h3>
-            <p>Our bold proposal for the 2013 Annual Report placed second in a national competition held by RAI. It featured many infographics and strong typographic elements.</p>            
+            <p>Our bold proposal for the 2013 Annual Report placed second in a national competition held by RAI. It featured many infographics and strong typographic elements.</p>
             <figure>
                 <img src="images/print/print-rai.jpg" alt="Two pages from the report, with a bright blue background and large infographics">
             </figure>
-            <h6 class="print-spacer">Event branding</h6>
+            <h6 id="finmeccanica" class="print-spacer">Event branding</h6>
             <h3>Finmeccanica at Farnborough 2014</h3>
             <p>Identity for Finmeccanica (now Leonardo) at the 2014 Farnborough International Airshow. The project included print materials as well as the digital identity and the branding of the exhibition spaces.</p>
             <figure>
                 <img src="images/print/print-finmeccanica.jpg" alt="The detail of a glossy double F logo, and the visitor map for the event.">
             </figure>
-            <h6 class="print-spacer">Event branding</h6>
+            <h6 id="le-ali-del-design" class="print-spacer">Event branding</h6>
             <h3>Le ali del design</h3>
             <p>Identity for the Italian National Arts Award 2013 (Premio Nazionale delle Arti), held in Pescara.</p>
             <figure>
                 <img src="images/print/print-ali-design.jpg" alt="The postcards made for the event, and a banner in the streets of Pescara with the event branding">
             </figure>
-            <h6 class="print-spacer">Publication</h6>
+            <h6 id="mercedes-benz" class="print-spacer">Publication</h6>
             <h3>AutoRitratto: 40 years of Mercedes-Benz in Italy</h3>
             <p>The book tells the story of Mercedes-Benz in Italy, for the 40th anniversary of the brand in this country.</p>
             <figure>
                 <img src="images/print/print-mercedes.jpg" alt="Two pages of the book, and the cover, which has a circular hole that lets you see some photos.">
             </figure>
-            <h6 class="print-spacer">Publication</h6>
+            <h6 id="aboca" class="print-spacer">Publication</h6>
             <h3>Aboca, innovation for health</h3>
             <p>Aboca uses the language of infographics to explain how nature can improve the human health.</p>
             <figure>
                 <img src="images/print/print-aboca.jpg" alt="Two pages of the publication. The right page features a large infographic.">
             </figure>
+        </div>
     </section>
     <!-- Project nav -->
     <nav class="project-nav expanded row">
@@ -107,5 +108,20 @@
     </footer>
     <!-- Scripts -->
     <script src="js/app.js"></script>
+    <script>
+        ProjectTracker(
+          $,
+          {
+            project: 'print-works',
+            elements: [
+              '#annual-report-rai',
+              '#finmeccanica',
+              '#le-ali-del-design',
+              '#mercedes-benz',
+              '#aboca'
+            ]
+          }
+        ).track();
+    </script>
   </body>
 </html>

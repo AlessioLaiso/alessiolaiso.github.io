@@ -53,21 +53,21 @@
     <!-- Story -->
     <section class="project-main small-12 columns">
         <div class="project-story libra-project">
-            <h6>Why it was needed</h6>
+            <h6 id="why-it-was-needed">Why it was needed</h6>
             <h3>Many users left behind</h3>
             <p>Runtastic Libra is a smart scale that analyses body metrics — including weight, body fat and water percentage — and can transfer data to a smartphone using Bluetooth. The company had launched the scale in the Fall 2013, but one year later the companion app was still only available for iOS. Customers were often writing to the support team and on social media, asking when the Android app would finally be released.</p>
             <figure>
                 <img src="images/libra/android-robot-libra-scale.jpg" alt="The Android robot in front of the Libra scale">
                 <figcaption>The Android robot shows you the Runtastic Libra scale. Photo: Jakob Lehner.</figcaption>
             </figure>
-            <h6>My role and the team</h6>
+            <h6 id="my-role-and-the-team">My role and the team</h6>
             <h3>Fantastic team work</h3>
             <p>I was the lead designer of the Android app, discussing the screens with the designer who had worked on the iOS version, and working closely with the developers who were implementing the UI. The synergy with the project manager and the developers was great, and led to a great human and professional esteem among the members of the team.</p>
             <figure class="libra-animation">
                 <img src="images/libra/libra-animation.gif" alt="The Android robot in front of the Libra scale">
                 <figcaption>Opening a measurement from the weight history.</figcaption>
             </figure>
-            <h6>Design process</h6>
+            <h6 id="design-process">Design process</h6>
             <h3>Working with user insights</h3>
             <p>The iOS design was taken as a starting point for the Android app, to offer a consistent experience across the platforms. Rather than just reskinning the iOS app, we gathered feedback from existing users to see how we could improve the experience. We identified and interviewed some people from other teams in the company who were using the scale with the iOS app, as well as some external users, with the help of the Support team.</p>
             <figure>
@@ -84,12 +84,13 @@
                 <img src="images/libra/libra-graphs.png" alt="The full screen body composition graph, and the weight history screen, which includes a graph of the measurements on the top and a list at on the bottom">
                 <figcaption>The full body composition graph (left) satisfies the requests of power users. The dashed line (right) makes it easy to see the progress toward your goal.</figcaption>
             </figure>
-            <h6>Outcomes</h6>
+            <h6 id="outcomes">Outcomes</h6>
             <h3>Delighted users and a close-knit team</h3>
             <p>The Runtastic community was really happy to finally be able to use the Libra scale with Android devices. The interface is one of the most praised aspects of the app in the reviews in the Store. In addition to this, the great team work on this project made the whole team look forward to working together again in our next project.</p>
             <figure class="libra-reviews">
                 <img src="images/libra/libra-reviews.png" alt="Two 5-stars reviews from the Play Store">
             </figure>
+        </div>
     </section>
     <!-- Project nav -->
     <nav class="project-nav expanded row">
@@ -117,5 +118,19 @@
     </footer>
     <!-- Scripts -->
     <script src="js/app.js"></script>
+    <script>
+        ProjectTracker(
+          $,
+          {
+            project: 'runtastic-libra',
+            elements: [
+              '#why-it-was-needed',
+              '#my-role-and-the-team',
+              '#design-process',
+              '#outcomes',
+            ]
+          }
+        ).track();
+    </script>
   </body>
 </html>
