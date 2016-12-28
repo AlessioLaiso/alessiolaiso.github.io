@@ -14,11 +14,21 @@ var sassPaths = [
   'bower_components/motion-ui/src'
 ];
 
-var seq = function() {
-  var args = Array.prototype.slice.call(arguments);
+var seq = function(args, cb) {
+  var args = Array.prototype.slice.call(args);
   return function(done){
-    return runSequence.apply(null, args.concat([done]));
+    return cb(args, done);
   };
+};
+var taskSeq = function(){
+  return seq(arguments, function(args, done){
+    return runSequence.apply(null, args.concat([done]));
+  });
+};
+var watchSeq = function() {
+  return seq(arguments, function(args){
+    return runSequence.apply(null, args);
+  });
 };
 
 /**
@@ -87,7 +97,7 @@ gulp.task('clean', function () {
 /**
  * Clean and build the website.
  */
-gulp.task('prepare-deploy', seq('clean', 'build'));
+gulp.task('prepare-deploy', taskSeq('clean', 'build'));
 
 /**
  * Deploys the website.
@@ -133,11 +143,11 @@ gulp.task('reload', ['html'], function () {
  * Watch files and recompile assets when any file is updated.
  */
 gulp.task('watch', ['build'], function() {
-  gulp.watch(['download/**/*'], seq('download', 'reload'));
+  gulp.watch(['download/**/*'], watchSeq('download', 'reload'));
   gulp.watch(['*.html'], ['reload']);
-  gulp.watch(['scss/**/*.scss'], seq('sass', 'reload'));
-  gulp.watch(['js/**/*.js'], seq('js','reload'));
-  gulp.watch(['images/**/*'], seq('img','reload'));
+  gulp.watch(['scss/**/*.scss'], watchSeq('sass', 'reload'));
+  gulp.watch(['js/**/*.js'], watchSeq('js','reload'));
+  gulp.watch(['images/**/*'], watchSeq('img','reload'));
 });
 
 gulp.task('default', ['build', 'connect', 'watch']);
