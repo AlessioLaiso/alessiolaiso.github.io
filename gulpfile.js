@@ -16,15 +16,13 @@ var seq = function(args, cb) {
     return cb(args, done);
   };
 };
-var taskSeq = function() {
-  return seq(arguments, function(args, done){
-    return runSequence.apply(null, args.concat([done]));
-  });
-};
 var watchSeq = function() {
   return seq(arguments, function(args){
     return runSequence.apply(null, args);
   });
+};
+var pipeForDev = function(pipe){
+  return deploy ? $.util.noop() : pipe;
 };
 
 /**
@@ -67,17 +65,35 @@ gulp.task("download", function() {
  * Copy the html files to the dist folder.
  */
 gulp.task("html", function() {
-  var task = gulp.src(["*.html", "CNAME"]);
-  if(deploy){
-    task = task.pipe($.htmlmin({
+  var htmlminOpts;
+  if(deploy) {
+    htmlminOpts = {
       minifyJS: true,
       removeComments: true,
-      collapseWhitespace: true
-    }));
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeRedundantAttributes: true,
+      sortAttributes: true,
+      sortClassName: true
+    }
   }else{
-    task = task.pipe($.htmlmin({ removeComments: true }));
+    htmlminOpts = {
+      removeComments: true,
+      collapseWhitespace: true,
+      preserveLineBreaks: true
+    };
   }
-  return task.pipe(gulp.dest("dist/"));
+  var htmlPrettifyOpts = {
+    brace_style: "expand",
+    indent_char: ' ',
+    indent_size: 2
+  };
+  return gulp.src(["*.html", "CNAME"])
+    .pipe($.nunjucksRender())
+    .pipe(pipeForDev($.frontMatter({ remove: true })))
+    .pipe($.htmlmin(htmlminOpts))
+    .pipe(pipeForDev($.htmlPrettify(htmlPrettifyOpts)))
+    .pipe(gulp.dest("dist/"));
 });
 
 /**
