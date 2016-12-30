@@ -1,13 +1,7 @@
 var gulp        = require("gulp");
-var minify      = require("gulp-minify");
 var $           = require("gulp-load-plugins")();
-var concat      = require("gulp-concat");
-var connect     = require("gulp-connect");
-var clean       = require("gulp-clean");
 var runSequence = require("run-sequence");
 var bowerFiles  = require("main-bower-files");
-var ghPages     = require("gulp-gh-pages");
-var htmlmin     = require('gulp-htmlmin');
 
 var deploy = false;
 var sassPaths = [
@@ -22,7 +16,7 @@ var seq = function(args, cb) {
     return cb(args, done);
   };
 };
-var taskSeq = function(){
+var taskSeq = function() {
   return seq(arguments, function(args, done){
     return runSequence.apply(null, args.concat([done]));
   });
@@ -55,9 +49,9 @@ gulp.task("sass", function() {
 gulp.task("js", function() {
   var task = gulp.src(bowerFiles({ filter: /^.*.js$/ }).concat("js/*.js"));
   if(deploy){
-    task = task.pipe(minify({ noSource: true }))
+    task = task.pipe($.minify({ noSource: true }))
   }
-  return task.pipe(concat("app.js"))
+  return task.pipe($.concat("app.js"))
     .pipe(gulp.dest("dist/js"));
 });
 
@@ -75,13 +69,13 @@ gulp.task("download", function() {
 gulp.task("html", function() {
   var task = gulp.src(["*.html", "CNAME"]);
   if(deploy){
-    task = task.pipe(htmlmin({
+    task = task.pipe($.htmlmin({
       minifyJS: true,
       removeComments: true,
       collapseWhitespace: true
     }));
   }else{
-    task = task.pipe(htmlmin({ removeComments: true }));
+    task = task.pipe($.htmlmin({ removeComments: true }));
   }
   return task.pipe(gulp.dest("dist/"));
 });
@@ -102,17 +96,31 @@ gulp.task("build", ["download", "sass", "js", "html", "img"]);
 /**
  * Clean dist folder.
  */
-gulp.task("clean", function () {
+gulp.task("clean", function(){
   return gulp.src("dist/*", { read: false })
-    .pipe(clean({ force: true }));
+    .pipe($.clean({ force: true }));
+});
+
+gulp.task("version", function(){
+  var versionConfig = {
+    "value": "%MD5%",
+    "append": {
+      "key": "__v",
+      "to": ["css", "js"],
+    }
+  };
+
+  return gulp.src("dist/**/*.html")
+      .pipe($.versionNumber(versionConfig))
+      .pipe(gulp.dest("dist"));
 });
 
 /**
  * Clean and build the website.
  */
-gulp.task("prepare-deploy", function(done){
+gulp.task("prepare-deploy", function(done) {
   deploy = true;
-  runSequence("clean", "build", done);
+  runSequence("clean", "build", "version", done);
 });
 
 /**
@@ -120,14 +128,14 @@ gulp.task("prepare-deploy", function(done){
  */
 gulp.task("deploy", ["prepare-deploy"], function(){
   return gulp.src("./dist/**/*")
-    .pipe(ghPages({ branch: "master", message: "Deployed on " + new Date().toString() }));
+    .pipe($.ghPages({ branch: "master", message: "Deployed on " + new Date().toString() }));
 });
 
 /**
  * Starts a web server within dist folder.
  */
 gulp.task("connect", ["build"], function() {
-  connect.server({
+  $.connect.server({
     root: "dist",
     livereload: true,
     middleware: function(connect, opt) {
@@ -152,7 +160,7 @@ gulp.task("connect", ["build"], function() {
  */
 gulp.task("reload", ["html"], function () {
   return gulp.src("*.html")
-    .pipe(connect.reload());
+    .pipe($.connect.reload());
 });
 
 /**
