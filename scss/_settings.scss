@@ -1388,6 +1388,99 @@ p.runtastic-leaderboard-img {
     }
 }
 
+//About
+.about-page{
+    h1 {
+        font-size: rem-calc(36);
+        background-image: url(/images/home/wave.svg);
+        background-position: left top;
+        background-repeat: no-repeat;
+        padding-top: 1.5625rem;
+    }
+}
+
+.work-experience-about {
+    background-color: $light-gray;
+    @include breakpoint(medium) {
+        background-image: url(/images/about/map.png);
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-size: 50%;
+    }
+    @include breakpoint(large) {
+        background-size: 40.625rem;
+    }
+    h1 {
+        margin: 5.25rem 0 4.875rem 0;
+        @include breakpoint(medium) {
+            margin: 8.31rem 0 5.375rem 0;
+        }
+    }
+    img {
+        max-width:7.125rem;
+        padding-bottom: 0.9rem;
+    }
+    h5 {
+        font-family: $additional-font-family;
+        font-size: rem-calc(16);
+        color: $medium-gray;
+    }
+    h2 {
+        font-size: rem-calc(28);
+    }
+    p {
+        padding-bottom: 4.1875rem;
+    }
+}
+
+.ibm-about {
+    img {
+        @include breakpoint(large) {
+            margin-top: 0.6875rem;
+        }
+    }
+}
+
+.vertigo-about {
+    img {
+        @include breakpoint(large) {
+            margin-top: 1.0625rem;
+        }
+    }
+}
+
+.brands-about {
+    background-color: white;
+    padding-bottom: 1rem;
+    h1 {
+        margin: 4.375rem 0 4.5rem 0;
+    }
+    img {
+        max-width: 9.25rem;
+        max-height: 6.125rem;
+        margin-bottom: 3.875rem;
+    }
+}
+
+.find-out-more-about {
+    background-color: $light-gray;
+    h1 {
+        margin: 4.375rem 0 0.625rem 0;
+    }
+    p {
+        font-size: rem-calc(20);
+        margin-bottom: 4.125rem;
+    }
+    a {
+        font-weight: 700;
+        color: $secondary-color;
+        -moz-transition: all .15s ease-out;
+        -o-transition: all .15s ease-out;
+        -webkit-transition: all .15s ease-out;
+        transition: all .15s ease-out;
+    }
+}
+
 //404
 .notfound-page {
     h6 {
