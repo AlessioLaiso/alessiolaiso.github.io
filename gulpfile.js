@@ -88,7 +88,7 @@ gulp.task("html", function() {
     indent_char: ' ',
     indent_size: 2
   };
-  return gulp.src(["*.html", "CNAME"])
+  return gulp.src(["*.html", "CNAME", "!_layout.html"])
     .pipe($.nunjucksRender())
     .pipe(pipeForDev($.frontMatter({ remove: true })))
     .pipe($.htmlmin(htmlminOpts))
