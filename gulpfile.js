@@ -88,12 +88,19 @@ gulp.task("html", function() {
     indent_char: ' ',
     indent_size: 2
   };
-  return gulp.src(["*.html", "CNAME", "!_layout.html"])
+  return gulp.src(["*.html", "!_layout.html"])
     .pipe($.nunjucksRender())
     .pipe(pipeForDev($.frontMatter({ remove: true })))
     .pipe($.htmlmin(htmlminOpts))
     .pipe(pipeForDev($.htmlPrettify(htmlPrettifyOpts)))
     .pipe(gulp.dest("dist/"));
+});
+
+/**
+ * Copy CNAME to dist.
+ */
+gulp.task("cname", function(){
+  return gulp.src("CNAME").pipe(gulp.dest("dist/"));
 });
 
 /**
@@ -107,7 +114,7 @@ gulp.task("img", function() {
 /**
  * Builds all assets.
  */
-gulp.task("build", ["download", "sass", "js", "html", "img"]);
+gulp.task("build", ["download", "sass", "js", "cname", "html", "img"]);
 
 /**
  * Clean dist folder.
