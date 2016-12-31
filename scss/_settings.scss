@@ -638,9 +638,31 @@ $topbar-unstack-breakpoint: small;
     -o-transition: all .15s ease-out;
     -webkit-transition: all .15s ease-out;
     transition: all .15s ease-out;
+    //span {
+        //text-decoration: underline;
     span {
-        text-decoration: underline;
+        font-size: rem-calc(16);
+        /*  shadows render better in certain browsers than text, first rule is for older browser support  */
+        color: $secondary-color;
+        color: transparent;
+        text-shadow: 0 0 $secondary-color, .1em 0 0 $light-gray, 0 0, -.1em 0 0 $light-gray;//text offset for descenders
+        /*  gradient background allows us to use css only & re-position it  */
+        background: -webkit-linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
+        background: linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
+        /*  can precisely control size in relation to the text  */
+        background-size: 100% 1px;
+        /*  now the underline supports transitions  */
+        -webkit-transition: all .15s ease-out;
+        transition: all .15s ease-out;
     }
+
+    span:hover {
+        /*  backgrounds won't size larger than 100%  */
+        background-size: 100% 2px;
+        color: $primary-color;
+        background: -webkit-linear-gradient($secondary-color, $secondary-color) center .8em no-repeat;
+        background: linear-gradient($secondary-color, $secondary-color) center .8em no-repeat;
+    }    
 }
 
 .fixed-custom {
