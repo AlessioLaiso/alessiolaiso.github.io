@@ -657,11 +657,10 @@ $topbar-unstack-breakpoint: small;
     }
 
     span:hover {
-        /*  backgrounds won't size larger than 100%  */
-        background-size: 100% 2px;
+        //background-size: 100% 1px;
         color: $primary-color;
-        background: -webkit-linear-gradient($secondary-color, $secondary-color) center .8em no-repeat;
-        background: linear-gradient($secondary-color, $secondary-color) center .8em no-repeat;
+        //background: -webkit-linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
+        //background: linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
     }    
 }
 
@@ -813,25 +812,75 @@ footer  {
         line-height: 1.333;
         padding-top: 1.59rem;
     }
+    h4:before {
+      content: "";
+      display: block;
+      width: 4rem;
+      height: 12px;
+      margin: -1.59rem 0 .8rem 0;
+      background-position: left top;
+      background-size: 4rem 0.75rem;
+      background-repeat: no-repeat;
+    }
     p {
         margin-left: 1.5rem;
     }
     @include breakpoint(medium) {    
         width: 31.25rem;
-        //padding-top: 1.59rem;
     }
 }
 
-.ibm-home, .aleo-home, .print-home { //grey BG
+.ibm-home, .aleo-home, .print-home { //grey BG //animation start
     background-color: $light-gray;
     p {
         color: $black;
     }
-    h4 {
-        background-image: url(/images/home/wave.svg);
-        background-position: left top;
-        background-repeat: no-repeat;
+    h4:before {
+      background-image: url(/images/home/wave.svg);
     }
+}
+
+//Hover animation start
+.ibm-home:hover h4:before{
+  animation: stripes 1s ease;
+  background-repeat: repeat;
+}
+
+.runtastic-home:hover h4:before{
+  animation: stripes 1s ease;
+  background-repeat: repeat;
+}
+
+.libra-home:hover h4:before{
+  animation: stripes 1s ease;
+  background-repeat: repeat;
+}
+
+.aleo-home:hover h4:before{
+  animation: stripes 1s ease;
+  background-repeat: repeat;
+}
+
+.planet-home:hover h4:before{
+  animation: stripes 1s ease;
+  background-repeat: repeat;
+}
+
+.sleep-home:hover h4:before{
+  animation: stripes 1s ease;
+  background-repeat: repeat;
+}
+
+.print-home:hover h4:before{
+  animation: stripes 1s ease;
+  background-repeat: repeat;
+}
+//Hover animation end
+
+@keyframes stripes {
+  100% {
+    background-position: 2rem 0;
+  }
 }
 
 .ibm-home:hover, .aleo-home:hover, .print-home:hover {
@@ -845,9 +894,11 @@ footer  {
     }
     h4 {
         color: white;
-        background-image: url(/images/home/wave.svg);
         background-position: left top;
         background-repeat: no-repeat;
+    }
+    h4:before {
+      background-image: url(/images/home/wave.svg);
     }
 }
 
@@ -859,12 +910,14 @@ footer  {
     background-color: $secondary-color;
     h4 {
         color: white;
-        background-image: url(/images/home/wave-alt.svg);
         background-position: left top;
         background-repeat: no-repeat;
     }
     p {
         color: $black;
+    }
+    h4:before {
+      background-image: url(/images/home/wave-alt.svg);
     }
 }
 
@@ -938,7 +991,7 @@ footer  {
     margin-bottom: 2.5rem;
     img {
         max-width: 18.875rem;
-        margin: -17.175rem 0.5rem 5.44rem 0;
+        margin: -17rem 0.5rem 5.44rem 0;
         float: right;
         @media only screen and (max-width: 33.125em) {
             max-width: 15rem;
