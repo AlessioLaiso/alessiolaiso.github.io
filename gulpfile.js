@@ -1,7 +1,9 @@
 var gulp        = require("gulp");
 var $           = require("gulp-load-plugins")();
 var runSequence = require("run-sequence");
-
+var sitemap = require('gulp-sitemap');
+var save    = require('gulp-save')
+;
 var deploy = false;
 var sassPaths = [
   "bower_components/normalize.scss/sass",
@@ -93,6 +95,12 @@ gulp.task("html", function() {
     indent_size: 2
   };
   return gulp.src(["*.html", "!_layout.html"])
+    .pipe(save('before-sitemap'))
+    .pipe(sitemap({
+      siteUrl: 'http://alessiolaiso.com'
+    }))
+    .pipe(gulp.dest('./dist'))
+    .pipe(save.restore('before-sitemap'))
     .pipe($.nunjucksRender())
     .pipe(pipeForDev($.frontMatter({ remove: true })))
     .pipe($.htmlmin(htmlminOpts))

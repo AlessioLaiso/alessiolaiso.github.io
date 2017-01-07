@@ -17,6 +17,8 @@
     "gulp-minify": "0.0.14",
     "gulp-nunjucks-render": "^2.0.0",
     "gulp-sass": "^2.1.0",
+    "gulp-save": "^1.2.1",
+    "gulp-sitemap": "^4.2.0",
     "gulp-util": "^3.0.8",
     "gulp-version-number": "^0.1.5",
     "run-sequence": "^1.2.2"
