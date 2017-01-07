@@ -1,13 +1,17 @@
 var gulp        = require("gulp");
 var $           = require("gulp-load-plugins")();
 var runSequence = require("run-sequence");
-var bowerFiles  = require("main-bower-files");
 
 var deploy = false;
 var sassPaths = [
   "bower_components/normalize.scss/sass",
   "bower_components/foundation-sites/scss",
   "bower_components/motion-ui/src"
+];
+var jsFiles = [
+  "bower_components/jquery/dist/jquery.js",
+  "bower_components/scroll-depth/jquery.scrolldepth.js",
+  "js/*.js"
 ];
 
 var seq = function(args, cb) {
@@ -45,11 +49,11 @@ gulp.task("sass", function() {
  * Minify js files and copy them to dist/js folder.
  */
 gulp.task("js", function() {
-  var task = gulp.src(bowerFiles({ filter: /^.*.js$/ }).concat("js/*.js"));
+  var task = gulp.src(jsFiles);
   if(deploy){
-    task = task.pipe($.minify({ noSource: true }))
+    task = task.pipe($.minify({ noSource: true, preserveComments: "some" }));
   }
-  return task.pipe($.concat("app.js"))
+  return task.pipe($.concat("app.js", { newLine: "" }))
     .pipe(gulp.dest("dist/js"));
 });
 
@@ -75,7 +79,7 @@ gulp.task("html", function() {
       removeRedundantAttributes: true,
       sortAttributes: true,
       sortClassName: true
-    }
+    };
   }else{
     htmlminOpts = {
       removeComments: true,
@@ -129,7 +133,7 @@ gulp.task("version", function(){
     "value": "%MD5%",
     "append": {
       "key": "__v",
-      "to": ["css", "js"],
+      "to": ["css", "js"]
     }
   };
 
@@ -167,13 +171,13 @@ gulp.task("connect", ["build"], function() {
           if (!req.url.match(/^\/(|.*\..*)$/)) {
             req.url = req.url + ".html";
           }
-          var path = "dist" + req.url
+          var path = "dist" + req.url;
           if(!require("fs").existsSync(path)){
             req.url = "/404.html";
           }
           next();
         }
-      ]
+      ];
     }
   });
 });
