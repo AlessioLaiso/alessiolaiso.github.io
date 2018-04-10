@@ -4,4 +4,3 @@
 set -e
 
 npm i
-bower i

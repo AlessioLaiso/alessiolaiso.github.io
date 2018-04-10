@@ -21,7 +21,10 @@
     "gulp-sitemap": "^4.2.0",
     "gulp-util": "^3.0.8",
     "gulp-version-number": "^0.1.5",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "foundation-sites": "~6.3.0",
+    "motion-ui": "~1.2.2",
+    "scroll-depth": "^0.9.1"
   },
   "scripts": {
     "build": "gulp build",

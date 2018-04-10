@@ -14,15 +14,13 @@ This branch is used by github pages for deployment.
 ## Installation
 
 ```sh
-$ ./scripts/setup.sh
+npm i
 ```
-
-This installs dependencies via `npm i` and `bower i`.
 
 ## Running
 
 ```sh
-$ npm start
+npm start
 ```
 
 This script starts a webserver using live-reload with `dist` as server root.
@@ -30,7 +28,7 @@ This script starts a webserver using live-reload with `dist` as server root.
 ## Deploy
 
 ```sh
-$ ./scripts/deploy.sh
+./scripts/deploy.sh
 ```
 
 This script builds/compiles the website into the `dist` directory, creates a new commit on the `master` branch containing the changes in `dist` and pushes on github.

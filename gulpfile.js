@@ -2,17 +2,17 @@ var gulp        = require("gulp");
 var $           = require("gulp-load-plugins")();
 var runSequence = require("run-sequence");
 var sitemap = require('gulp-sitemap');
-var save    = require('gulp-save')
-;
-var deploy = false;
-var sassPaths = [
-  "bower_components/normalize.scss/sass",
-  "bower_components/foundation-sites/scss",
-  "bower_components/motion-ui/src"
+var save    = require('gulp-save');
+
+let deploy = false;
+const sassPaths = [
+  "node_modules/normalize.scss/sass",
+  "node_modules/foundation-sites/scss",
+  "node_modules/motion-ui/src"
 ];
-var jsFiles = [
-  "bower_components/jquery/dist/jquery.js",
-  "bower_components/scroll-depth/jquery.scrolldepth.js",
+const jsFiles = [
+  "node_modules/jquery/dist/jquery.js",
+  "node_modules/scroll-depth/jquery.scrolldepth.js",
   "js/*.js"
 ];
 
