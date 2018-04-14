@@ -1,6 +1,6 @@
 # alessiolaiso.github.io
 
-alessiolaiso.com
+[alessiolaiso.com](https://alessiolaiso.com)
 
 ## Repository setup
 

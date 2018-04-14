@@ -4,8 +4,21 @@ var runSequence = require("run-sequence");
 var sitemap = require('gulp-sitemap');
 var save    = require('gulp-save');
 
+const sourceFile = (path) => `source/${path}`;
+const jsFile = (name) => sourceFile(`js/${name}.js`);
+const cssFile = (name) => sourceFile(`scss/${name}.scss`);
+const htmlFile = (name) => sourceFile(`${name}.html`);
+
+const watchSeq = function() {
+  var args = Array.prototype.slice.call(arguments);
+  return () => {
+    return runSequence.apply(null, args);
+  };
+};
+
 let deploy = false;
-const sassPaths = [
+
+const SASS_PATHS = [
   "node_modules/normalize.scss/sass",
   "node_modules/foundation-sites/scss",
   "node_modules/motion-ui/src"
@@ -13,34 +26,21 @@ const sassPaths = [
 const jsFiles = [
   "node_modules/jquery/dist/jquery.js",
   "node_modules/scroll-depth/jquery.scrolldepth.js",
-  "js/*.js"
+  jsFile("*")
 ];
 
-var seq = function(args, cb) {
-  var args = Array.prototype.slice.call(args);
-  return function(done){
-    return cb(args, done);
-  };
-};
-var watchSeq = function() {
-  return seq(arguments, function(args){
-    return runSequence.apply(null, args);
-  });
-};
-var pipeForDev = function(pipe){
-  return deploy ? $.util.noop() : pipe;
-};
+const pipeIfDev = (pipe) => deploy ? $.util.noop() : pipe;
+const pipeIfNotDev = (pipe) => deploy ? pipe : $.util.noop();
 
 /**
  * Precompile scss/sass files into dist/css/app.css.
  */
-gulp.task("sass", function() {
-  return gulp.src(["scss/app.scss"])
+gulp.task("sass", () => {
+  return gulp.src([cssFile("app")])
     .pipe($.sass({
-      includePaths: sassPaths,
+      includePaths: SASS_PATHS,
       outputStyle: "compressed"
-    })
-    .on("error", $.sass.logError))
+    }))
     .pipe($.autoprefixer({
       browsers: ["last 2 versions", "ie >= 9"]
     }))
@@ -63,7 +63,7 @@ gulp.task("js", function() {
  * Copy the downloaded files.
  */
 gulp.task("download", function() {
-  return gulp.src("downloads/**/*")
+  return gulp.src(sourceFile("downloads/**/*"))
     .pipe(gulp.dest("dist/downloads"));
 });
 
@@ -94,17 +94,19 @@ gulp.task("html", function() {
     indent_char: ' ',
     indent_size: 2
   };
-  return gulp.src(["*.html", "!_layout.html"])
+  return gulp.src([htmlFile("*"), htmlFile("!_layout")])
     .pipe(save('before-sitemap'))
     .pipe(sitemap({
       siteUrl: 'http://alessiolaiso.com'
     }))
     .pipe(gulp.dest('./dist'))
     .pipe(save.restore('before-sitemap'))
-    .pipe($.nunjucksRender())
-    .pipe(pipeForDev($.frontMatter({ remove: true })))
+    .pipe($.nunjucksRender({
+      path: sourceFile("")
+    }))
+    .pipe(pipeIfDev($.frontMatter({ remove: true })))
     .pipe($.htmlmin(htmlminOpts))
-    .pipe(pipeForDev($.htmlPrettify(htmlPrettifyOpts)))
+    .pipe(pipeIfNotDev($.htmlPrettify(htmlPrettifyOpts)))
     .pipe(gulp.dest("dist/"));
 });
 
@@ -112,14 +114,14 @@ gulp.task("html", function() {
  * Copy CNAME to dist.
  */
 gulp.task("cname", function(){
-  return gulp.src("CNAME").pipe(gulp.dest("dist/"));
+  return gulp.src(sourceFile("CNAME")).pipe(gulp.dest("dist/"));
 });
 
 /**
  * Copy images to dist/images folder.
  */
 gulp.task("img", function() {
-  return gulp.src("images/**/*")
+  return gulp.src(sourceFile("images/**/*"))
     .pipe(gulp.dest("dist/images"));
 });
 
@@ -141,7 +143,7 @@ gulp.task("version", function(){
     "value": "%MD5%",
     "append": {
       "key": "__v",
-      "to": ["css", "js"]
+      "to": ["css", "js", "image"]
     }
   };
 
@@ -202,11 +204,11 @@ gulp.task("reload", ["html"], function () {
  * Watch files and recompile assets when any file is updated.
  */
 gulp.task("watch", ["build"], function() {
-  gulp.watch(["download/**/*"], watchSeq("download", "reload"));
-  gulp.watch(["*.html"], ["reload"]);
-  gulp.watch(["scss/**/*.scss"], watchSeq("sass", "reload"));
-  gulp.watch(["js/**/*.js"], watchSeq("js","reload"));
-  gulp.watch(["images/**/*"], watchSeq("img","reload"));
+  gulp.watch([sourceFile("download/**/*")], watchSeq("download", "reload"));
+  gulp.watch([sourceFile("*.html")], ["reload"]);
+  gulp.watch([sourceFile("scss/**/*.scss")], watchSeq("sass", "reload"));
+  gulp.watch([sourceFile("js/**/*.js")], watchSeq("js","reload"));
+  gulp.watch([sourceFile("images/**/*")], watchSeq("img","reload"));
 });
 
 gulp.task("default", ["build", "connect", "watch"]);
