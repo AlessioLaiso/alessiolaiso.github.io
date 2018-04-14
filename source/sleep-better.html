@@ -101,21 +101,3 @@
     </a>
 </nav>
 {% endblock %}
-{% block extra_js %}
-<script>
-    ProjectTracker(
-      $,
-      {
-        project: 'runtastic-sleep-better',
-        elements: [
-          '#the-vision',
-          '#the-challenge',
-          '#my-role-and-the-team',
-          '#the-process',
-          '#outcomes',
-          '#reflections'
-        ]
-      }
-    ).track();
-</script>
-{% endblock %}

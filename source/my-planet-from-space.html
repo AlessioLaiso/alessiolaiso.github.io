@@ -111,20 +111,3 @@
     </a>
 </nav>
 {% endblock %}
-
-{% block extra_js %}
-<script>
-    ProjectTracker(
-      $,
-      {
-        project: 'my-planet-from-space',
-        elements: [
-          '#the-vision',
-          '#my-role-and-the-team',
-          '#the-exhibition',
-          '#outcomes'
-        ]
-      }
-    ).track();
-</script>
-{% endblock %}

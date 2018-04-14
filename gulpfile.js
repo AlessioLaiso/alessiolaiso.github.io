@@ -30,7 +30,6 @@ const jsFiles = [
 ];
 
 const pipeIfDev = (pipe) => deploy ? $.util.noop() : pipe;
-const pipeIfNotDev = (pipe) => deploy ? pipe : $.util.noop();
 
 /**
  * Precompile scss/sass files into dist/css/app.css.
@@ -106,7 +105,7 @@ gulp.task("html", function() {
     }))
     .pipe(pipeIfDev($.frontMatter({ remove: true })))
     .pipe($.htmlmin(htmlminOpts))
-    .pipe(pipeIfNotDev($.htmlPrettify(htmlPrettifyOpts)))
+    .pipe(pipeIfDev($.htmlPrettify(htmlPrettifyOpts)))
     .pipe(gulp.dest("dist/"));
 });
 

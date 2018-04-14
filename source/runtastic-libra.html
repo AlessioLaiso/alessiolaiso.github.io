@@ -96,19 +96,3 @@
     </a>
 </nav>
 {% endblock %}
-{% block extra_js %}
-<script>
-    ProjectTracker(
-      $,
-      {
-        project: 'runtastic-libra',
-        elements: [
-          '#why-it-was-needed',
-          '#my-role-and-the-team',
-          '#design-process',
-          '#outcomes',
-        ]
-      }
-    ).track();
-</script>
-{% endblock %}

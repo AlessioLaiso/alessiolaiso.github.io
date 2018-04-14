@@ -102,20 +102,3 @@
     </a>
 </nav>
 {% endblock %}
-{% block extra_js %}
-<script>
-    ProjectTracker(
-      $,
-      {
-        project: 'ibm',
-        elements: [
-          '#design-research',
-          '#culture-and-collaboration',
-          '#visual-design',
-          '#sharing-knowledge',
-          '#inventions'
-        ]
-      }
-    ).track();
-</script>
-{% endblock %}

@@ -86,21 +86,3 @@
     </a>-->
 </nav>
 {% endblock %}
-
-{% block extra_js %}
-<script>
-    ProjectTracker(
-      $,
-      {
-        project: 'print-works',
-        elements: [
-          '#annual-report-rai',
-          '#finmeccanica',
-          '#le-ali-del-design',
-          '#mercedes-benz',
-          '#aboca'
-        ]
-      }
-    ).track();
-</script>
-{% endblock %}

@@ -112,19 +112,3 @@
     </a>
 </nav>
 {% endblock %}
-
-{% block extra_js %}
-<script>
-    ProjectTracker(
-      $,
-      {
-        project: 'aleo-font',
-        elements: [
-          '#challenges-and-goals',
-          '#design-process',
-          '#outcome'
-        ]
-      }
-    ).track();
-</script>
-{% endblock %}
