@@ -32,3 +32,11 @@ This script starts a webserver using live-reload with `dist` as server root.
 ```
 
 This script builds/compiles the website into the `dist` directory, creates a new commit on the `master` branch containing the changes in `dist` and pushes on github.
+
+## Rollback
+
+```sh
+./scripts/rollback.sh
+```
+
+This script will rollback the latest commit on the `master` branch and change its state back to the previous commit.
