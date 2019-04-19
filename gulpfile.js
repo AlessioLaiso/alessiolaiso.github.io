@@ -1,15 +1,15 @@
-var gulp        = require("gulp");
-var $           = require("gulp-load-plugins")();
+var gulp = require("gulp");
+var $ = require("gulp-load-plugins")();
 var runSequence = require("run-sequence");
 var sitemap = require('gulp-sitemap');
-var save    = require('gulp-save');
+var save = require('gulp-save');
 
-const sourceFile = (path) => `source/${path}`;
+const sourceFile = (path) => `src/${path}`;
 const jsFile = (name) => sourceFile(`js/${name}.js`);
 const cssFile = (name) => sourceFile(`scss/${name}.scss`);
 const htmlFile = (name) => sourceFile(`${name}.html`);
 
-const watchSeq = function() {
+const watchSeq = function () {
   var args = Array.prototype.slice.call(arguments);
   return () => {
     return runSequence.apply(null, args);
@@ -49,9 +49,9 @@ gulp.task("sass", () => {
 /**
  * Minify js files and copy them to dist/js folder.
  */
-gulp.task("js", function() {
+gulp.task("js", function () {
   var task = gulp.src(jsFiles);
-  if(deploy){
+  if (deploy) {
     task = task.pipe($.minify({ noSource: true, preserveComments: "some" }));
   }
   return task.pipe($.concat("app.js", { newLine: "" }))
@@ -61,7 +61,7 @@ gulp.task("js", function() {
 /**
  * Copy the downloaded files.
  */
-gulp.task("download", function() {
+gulp.task("download", function () {
   return gulp.src(sourceFile("downloads/**/*"))
     .pipe(gulp.dest("dist/downloads"));
 });
@@ -69,9 +69,9 @@ gulp.task("download", function() {
 /**
  * Copy the html files to the dist folder.
  */
-gulp.task("html", function() {
+gulp.task("html", function () {
   var htmlminOpts;
-  if(deploy) {
+  if (deploy) {
     htmlminOpts = {
       minifyJS: true,
       removeComments: true,
@@ -81,7 +81,7 @@ gulp.task("html", function() {
       sortAttributes: true,
       sortClassName: true
     };
-  }else{
+  } else {
     htmlminOpts = {
       removeComments: true,
       collapseWhitespace: true,
@@ -112,14 +112,14 @@ gulp.task("html", function() {
 /**
  * Copy CNAME to dist.
  */
-gulp.task("cname", function(){
+gulp.task("cname", function () {
   return gulp.src(sourceFile("CNAME")).pipe(gulp.dest("dist/"));
 });
 
 /**
  * Copy images to dist/images folder.
  */
-gulp.task("img", function() {
+gulp.task("img", function () {
   return gulp.src(sourceFile("images/**/*"))
     .pipe(gulp.dest("dist/images"));
 });
@@ -132,12 +132,12 @@ gulp.task("build", ["download", "sass", "js", "cname", "html", "img"]);
 /**
  * Clean dist folder.
  */
-gulp.task("clean", function(){
+gulp.task("clean", function () {
   return gulp.src("dist/*", { read: false })
     .pipe($.clean({ force: true }));
 });
 
-gulp.task("version", function(){
+gulp.task("version", function () {
   var versionConfig = {
     "value": "%MD5%",
     "append": {
@@ -147,14 +147,14 @@ gulp.task("version", function(){
   };
 
   return gulp.src("dist/**/*.html")
-      .pipe($.versionNumber(versionConfig))
-      .pipe(gulp.dest("dist"));
+    .pipe($.versionNumber(versionConfig))
+    .pipe(gulp.dest("dist"));
 });
 
 /**
  * Clean and build the website.
  */
-gulp.task("prepare-deploy", function(done) {
+gulp.task("prepare-deploy", function (done) {
   deploy = true;
   runSequence("clean", "build", "version", done);
 });
@@ -162,7 +162,7 @@ gulp.task("prepare-deploy", function(done) {
 /**
  * Deploys the website.
  */
-gulp.task("deploy", ["prepare-deploy"], function(){
+gulp.task("deploy", ["prepare-deploy"], function () {
   return gulp.src("./dist/**/*")
     .pipe($.ghPages({ branch: "master", message: "Deployed on " + new Date().toString() }));
 });
@@ -170,18 +170,18 @@ gulp.task("deploy", ["prepare-deploy"], function(){
 /**
  * Starts a web server within dist folder.
  */
-gulp.task("connect", ["build"], function() {
+gulp.task("connect", ["build"], function () {
   $.connect.server({
     root: "dist",
     livereload: true,
-    middleware: function(connect, opt) {
+    middleware: function (connect, opt) {
       return [
-        function(req, res, next) {
+        function (req, res, next) {
           if (!req.url.match(/^\/(|.*\..*)$/)) {
             req.url = req.url + ".html";
           }
           var path = "dist" + req.url;
-          if(!require("fs").existsSync(path)){
+          if (!require("fs").existsSync(path)) {
             req.url = "/404.html";
           }
           next();
@@ -202,12 +202,12 @@ gulp.task("reload", ["html"], function () {
 /**
  * Watch files and recompile assets when any file is updated.
  */
-gulp.task("watch", ["build"], function() {
+gulp.task("watch", ["build"], function () {
   gulp.watch([sourceFile("download/**/*")], watchSeq("download", "reload"));
   gulp.watch([sourceFile("*.html")], ["reload"]);
   gulp.watch([sourceFile("scss/**/*.scss")], watchSeq("sass", "reload"));
-  gulp.watch([sourceFile("js/**/*.js")], watchSeq("js","reload"));
-  gulp.watch([sourceFile("images/**/*")], watchSeq("img","reload"));
+  gulp.watch([sourceFile("js/**/*.js")], watchSeq("js", "reload"));
+  gulp.watch([sourceFile("images/**/*")], watchSeq("img", "reload"));
 });
 
 gulp.task("default", ["build", "connect", "watch"]);
