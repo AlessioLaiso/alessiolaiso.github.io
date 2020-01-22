@@ -863,7 +863,7 @@ footer  {
   background-repeat: repeat;
 }
 
-.planet-home:hover h4:before{
+.zalando-home:hover h4:before{
   animation: stripes 1s ease;
   background-repeat: repeat;
 }
@@ -889,7 +889,7 @@ footer  {
     background-color: hsl(197, 2%, 90%);
 }
 
-.runtastic-home, .planet-home { //blue BG
+.libra-home, .runtastic-home { //blue BG
     background-color: $primary-color;
     p {
         color: white;
@@ -904,11 +904,11 @@ footer  {
     }
 }
 
-.runtastic-home:hover, .planet-home:hover {
+.libra-home:hover, .runtastic-home:hover {
     background-color: hsl(197, 49%, 28%);
 }
 
-.libra-home, .sleep-home, .ryanair-home { //orange BG
+.sleep-home, .ryanair-home, .zalando-home { //orange BG
     background-color: $secondary-color;
     h4 {
         color: white;
@@ -923,7 +923,7 @@ footer  {
     }
 }
 
-.libra-home:hover, .sleep-home:hover, .ryanair-home:hover {
+.sleep-home:hover, .ryanair-home:hover, .zalando-home:hover {
     background-color: #E75B39;
 }
 
@@ -1025,11 +1025,11 @@ footer  {
     }
 }
 
-.planet-home {
-    margin-bottom: 2rem;
+.zalando-home {
+    margin-bottom: 4.5rem;
     img {
-        max-width: 87.7%;
-        margin: 1.5rem 0 2.25rem auto;
+        max-width: 60%;
+        margin: 0.5rem 1.7rem -2rem auto;
         float: right;
         }
     h4 {
@@ -1431,7 +1431,7 @@ p.runtastic-leaderboard-img {
     padding-top: 2.5rem;
 }
 
-//My planet from space
+/*My planet from space
 
 .planet-project.project-info{
     @media only screen and (max-width: 41.875em) {
@@ -1460,7 +1460,7 @@ p.runtastic-leaderboard-img {
         max-width: 70%;
         margin-left: 15%;
     }
-}
+}*/
 
 //Ryanair car hire
 
@@ -1510,7 +1510,7 @@ p.runtastic-leaderboard-img {
 
 
 
-//Print
+//Graphic design
 .project-info.print-project {
     padding-bottom: 2rem;
 }
@@ -1524,6 +1524,9 @@ p.runtastic-leaderboard-img {
     h6.print-spacer {
         margin-top: 4.5rem;
     }
+
+    figcaption {
+        margin-bottom: 2.5rem;}
 }
 
 //About
