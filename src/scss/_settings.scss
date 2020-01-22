@@ -1485,6 +1485,31 @@ p.runtastic-leaderboard-img {
     margin-left: 22.5%;
 }
 
+//Zalando Business Platform
+.zalando-project.project-info{
+    img {
+        //max-width: 22rem;
+        margin: -15.06rem 0 -11rem 1.4rem;
+    }
+}
+
+.zalando-project.project-story {
+    padding-top: 2.5rem;
+    @include breakpoint(large) {
+        padding-top: 3.375rem;
+    }
+
+    figcaption{
+        padding-bottom: 2rem;
+        }
+    
+    p.with-ul {
+        margin-bottom: 0;       
+    }
+}
+
+
+
 //Print
 .project-info.print-project {
     padding-bottom: 2rem;
