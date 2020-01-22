@@ -1,6 +1,5 @@
 var gulp = require("gulp");
 var $ = require("gulp-load-plugins")();
-var runSequence = require("run-sequence");
 var sitemap = require("gulp-sitemap");
 var save = require("gulp-save");
 
@@ -8,13 +7,6 @@ const sourceFile = path => `src/${path}`;
 const jsFile = name => sourceFile(`js/${name}.js`);
 const cssFile = name => sourceFile(`scss/${name}.scss`);
 const htmlFile = name => sourceFile(`${name}.html`);
-
-const watchSeq = function() {
-  var args = Array.prototype.slice.call(arguments);
-  return () => {
-    return runSequence.apply(null, args);
-  };
-};
 
 let deploy = false;
 
@@ -55,13 +47,11 @@ gulp.task("sass", () => {
  * Minify js files and copy them to dist/js folder.
  */
 gulp.task("js", function() {
-  var task = gulp.src(jsFiles);
-  if (deploy) {
-    task = task.pipe($.minify({ noSource: true, preserveComments: "some" }));
-  }
-  return task
+  return gulp
+    .src(jsFiles)
     .pipe($.concat("app.js", { newLine: "" }))
-    .pipe(gulp.dest("dist/js"));
+    .pipe(deploy ? $.uglify() : $.util.noop())
+    .pipe(gulp.dest("dist/js/"));
 });
 
 /**
@@ -168,10 +158,18 @@ gulp.task("version", function() {
 /**
  * Clean and build the website.
  */
-gulp.task("prepare-deploy", function(done) {
-  deploy = true;
-  runSequence("clean", "build", "version", done);
-});
+gulp.task(
+  "prepare-deploy",
+  gulp.series(
+    function(done) {
+      deploy = true;
+      done();
+    },
+    "clean",
+    "build",
+    "version"
+  )
+);
 
 /**
  * Deploys the website.
@@ -242,4 +240,4 @@ gulp.task("watch", function(done) {
   done();
 });
 
-gulp.task("default", gulp.series("build", gulp.parallel("connect", "watch")));
+gulp.task("default", gulp.parallel("connect", "watch"));
