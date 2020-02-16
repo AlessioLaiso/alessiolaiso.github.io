@@ -205,11 +205,14 @@ gulp.task(
               if (match) {
                 const path = match[1];
                 const matchingFile = [
-                  `${path}`,
+                  path === "" ? "index.html" : `${path}/index.html`,
                   `${path}.html`,
-                  `${path}/index.html`
-                ].find(path => fs.existsSync(`dist/${path}`));
-                if (matchingFile) {
+                  `${path}`
+                ].find(path => {
+                  return fs.existsSync(`dist/${path}`);
+                });
+
+                if (matchingFile !== undefined) {
                   req.url = `/${matchingFile}`;
                 }
               }
