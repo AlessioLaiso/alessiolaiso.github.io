@@ -2,6 +2,7 @@ var gulp = require("gulp");
 var $ = require("gulp-load-plugins")();
 var sitemap = require("gulp-sitemap");
 var save = require("gulp-save");
+var fs = require("fs");
 
 const sourceFile = path => `src/${path}`;
 const jsFile = name => sourceFile(`js/${name}.js`);
@@ -91,11 +92,11 @@ gulp.task("html", function() {
     indent_size: 2
   };
   return gulp
-    .src([htmlFile("*"), "!src/_layout.html"])
+    .src([htmlFile("**/*"), "!src/_layout.html"])
     .pipe(save("before-sitemap"))
     .pipe(
       sitemap({
-        siteUrl: "http://alessiolaiso.com"
+        siteUrl: "https://alessiolaiso.com"
       })
     )
     .pipe(gulp.dest("./dist"))
@@ -199,12 +200,18 @@ gulp.task(
         middleware: function(connect, opt) {
           return [
             function(req, res, next) {
-              if (!req.url.match(/^\/(|.*\..*)$/)) {
-                req.url = req.url + ".html";
-              }
-              var path = "dist" + req.url;
-              if (!require("fs").existsSync(path)) {
-                req.url = "/404.html";
+              const match = req.url.match(/^\/(.*)\/?$/);
+              req.url = "/404.html";
+              if (match) {
+                const path = match[1];
+                const matchingFile = [
+                  `${path}`,
+                  `${path}.html`,
+                  `${path}/index.html`
+                ].find(path => fs.existsSync(`dist/${path}`));
+                if (matchingFile) {
+                  req.url = `/${matchingFile}`;
+                }
               }
               next();
             }
@@ -233,7 +240,7 @@ gulp.task(
  */
 gulp.task("watch", function(done) {
   gulp.watch([sourceFile("download/**/*")], gulp.series("download", "reload"));
-  gulp.watch([sourceFile("*.html")], gulp.series("reload"));
+  gulp.watch([sourceFile("**/*.html")], gulp.series("reload"));
   gulp.watch([sourceFile("scss/**/*.scss")], gulp.series("sass", "reload"));
   gulp.watch([sourceFile("js/**/*.js")], gulp.series("js", "reload"));
   gulp.watch([sourceFile("images/**/*")], gulp.series("img", "reload"));
