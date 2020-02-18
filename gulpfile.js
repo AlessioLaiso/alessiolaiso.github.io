@@ -3,11 +3,10 @@ var $ = require("gulp-load-plugins")();
 var sitemap = require("gulp-sitemap");
 var save = require("gulp-save");
 var fs = require("fs");
+var path = require("path");
 
-const sourceFile = path => `src/${path}`;
-const jsFile = name => sourceFile(`js/${name}.js`);
-const cssFile = name => sourceFile(`scss/${name}.scss`);
-const htmlFile = name => sourceFile(`${name}.html`);
+const sourceFile = (files, subfolder = "") =>
+  path.join("src", subfolder, files);
 
 let deploy = false;
 
@@ -16,53 +15,61 @@ const SASS_PATHS = [
   "node_modules/foundation-sites/scss",
   "node_modules/motion-ui/src"
 ];
-const jsFiles = [
-  "node_modules/jquery/dist/jquery.js",
-  "node_modules/scroll-depth/jquery.scrolldepth.js",
-  jsFile("*")
-];
 
 const pipeIfDev = pipe => (deploy ? $.util.noop() : pipe);
-
+const sassTask = root => {
+  return () =>
+    gulp
+      .src([sourceFile("scss/app.scss", root)])
+      .pipe(
+        $.sass({
+          includePaths: SASS_PATHS,
+          outputStyle: "compressed"
+        })
+      )
+      .pipe(
+        $.autoprefixer({
+          browsers: ["last 2 versions", "ie >= 9"]
+        })
+      )
+      .pipe(gulp.dest(`dist/${root}/css/`));
+};
 /**
  * Precompile scss/sass files into dist/css/app.css.
  */
-gulp.task("sass", () => {
-  return gulp
-    .src([cssFile("app")])
-    .pipe(
-      $.sass({
-        includePaths: SASS_PATHS,
-        outputStyle: "compressed"
-      })
-    )
-    .pipe(
-      $.autoprefixer({
-        browsers: ["last 2 versions", "ie >= 9"]
-      })
-    )
-    .pipe(gulp.dest("dist/css/"));
-});
+gulp.task("sass", gulp.parallel(sassTask(""), sassTask("portfolio")));
+
+const jsFiles = root => [
+  "node_modules/jquery/dist/jquery.js",
+  "node_modules/scroll-depth/jquery.scrolldepth.js",
+  sourceFile("js/**/*.js", root)
+];
+const jsTask = root => {
+  return () =>
+    gulp
+      .src(jsFiles(root))
+      .pipe($.concat("app.js", { newLine: "" }))
+      .pipe(deploy ? $.uglify() : $.util.noop())
+      .pipe(gulp.dest(`dist/${root}/js/`));
+};
 
 /**
  * Minify js files and copy them to dist/js folder.
  */
-gulp.task("js", function() {
-  return gulp
-    .src(jsFiles)
-    .pipe($.concat("app.js", { newLine: "" }))
-    .pipe(deploy ? $.uglify() : $.util.noop())
-    .pipe(gulp.dest("dist/js/"));
-});
+gulp.task("js", gulp.parallel(jsTask(""), jsTask("portfolio")));
+
+const downloadTask = root => () =>
+  gulp
+    .src(sourceFile("downloads/**/*", root))
+    .pipe(gulp.dest(`dist/${root}/downloads`));
 
 /**
  * Copy the downloaded files.
  */
-gulp.task("download", function() {
-  return gulp
-    .src(sourceFile("downloads/**/*"))
-    .pipe(gulp.dest("dist/downloads"));
-});
+gulp.task(
+  "download",
+  gulp.parallel(downloadTask(""), downloadTask("portfolio"))
+);
 
 /**
  * Copy the html files to the dist folder.
@@ -92,7 +99,7 @@ gulp.task("html", function() {
     indent_size: 2
   };
   return gulp
-    .src([htmlFile("**/*"), "!src/_layout.html"])
+    .src([sourceFile("**/*.html"), "!**/_layout.html"])
     .pipe(save("before-sitemap"))
     .pipe(
       sitemap({
@@ -119,12 +126,15 @@ gulp.task("cname", function() {
   return gulp.src(sourceFile("CNAME")).pipe(gulp.dest("dist/"));
 });
 
+const imgTask = (root = "") => () =>
+  gulp
+    .src(sourceFile("images/**/*", root))
+    .pipe(gulp.dest(`dist/${root}/images`));
+
 /**
  * Copy images to dist/images folder.
  */
-gulp.task("img", function() {
-  return gulp.src(sourceFile("images/**/*")).pipe(gulp.dest("dist/images"));
-});
+gulp.task("img", gulp.parallel(imgTask(), imgTask("portfolio")));
 
 /**
  * Builds all assets.
@@ -234,7 +244,7 @@ gulp.task(
 gulp.task(
   "reload",
   gulp.series("html", function() {
-    return gulp.src("dist/*.html").pipe($.connect.reload());
+    return gulp.src("dist/**/*.html").pipe($.connect.reload());
   })
 );
 
