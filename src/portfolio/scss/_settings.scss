@@ -47,24 +47,24 @@
 // 1. Global
 // ---------
 
-$global-font-size: 112.5%;
+$global-font-size: 100%;
 $global-width: rem-calc(1000);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #F6EDE9,
-  secondary: #4C4A4C,
+  primary: #2E6F88,
+  secondary: #F47253,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
 $light-gray: #F5F5F3;
 $medium-gray: #8C8C8B;
-$dark-gray: #4C4A4C;
-$black: #222225;
+$dark-gray: #8a8a8a; //foundation colour
+$black: #363637;
 $white: #ffffff;
-$body-background: $black;
-$body-font-color: $white;
-$body-font-family: 'Pani Sans', Avenir, sans-serif;
+$body-background: $white;
+$body-font-color: $black;
+$body-font-family: Muli, Avenir, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -105,9 +105,9 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
-$header-font-weight: bold;
-$header-font-style: italic;
+$header-font-family: 'Playfair Display', serif;
+$header-font-weight: 900;
+$header-font-style: normal;
 $font-family-monospace: 'Fira Mono', Consolas, 'Liberation Mono', Courier, monospace;
 $additional-font-family: $font-family-monospace;
 $additional-font-weight: 700;
@@ -116,9 +116,9 @@ $header-lineheight: 1.143;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 92),
-    'h2': ('font-size': 48),
-    'h3': ('font-size': 36),
+    'h1': ('font-size': 55),
+    'h2': ('font-size': 20),
+    'h3': ('font-size': 32),
     'h4': ('font-size': 24),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
