@@ -22,7 +22,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
     "gulp-version-number": "^0.2.4",
-    "motion-ui": "~1.2.2",
+    "motion-ui": "^2.0.2",
     "sass": "^1.25.0",
     "scroll-depth": "^0.9.1"
   },
