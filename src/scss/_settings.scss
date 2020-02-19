@@ -47,8 +47,8 @@
 // 1. Global
 // ---------
 
-$global-font-size: 112.5%;
-$global-width: rem-calc(1000);
+$global-font-size: 100%;
+$global-width: rem-calc(1392);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #F6EDE9,
@@ -82,8 +82,8 @@ $print-transparent-backgrounds: true;
 
 $breakpoints: (
   small: 0,
-  medium: 670px,
-  large: 1024px,
+  medium: 768px,
+  large: 1280px //1024px,
   //xlarge: 1200px,
   //xxlarge: 1440px,
 );
@@ -96,8 +96,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 30px,
-  medium: 30px,
+  small: 22px,
+  medium: 22px,
 );
 $grid-column-align-edge: false;
 $block-grid-max: 8;
@@ -116,7 +116,7 @@ $header-lineheight: 1.143;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 92),
+    'h1': ('font-size': 48),
     'h2': ('font-size': 48),
     'h3': ('font-size': 36),
     'h4': ('font-size': 24),
@@ -124,7 +124,7 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 63),
+    'h1': ('font-size': 92),
     'h2': ('font-size': 40),
     'h3': ('font-size': 36),
     'h4': ('font-size': 24),
@@ -242,7 +242,7 @@ $breadcrumbs-item-slash: true;
 */
 // 11. Button
 // ----------
-/*
+
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
@@ -262,7 +262,7 @@ $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
 $button-transition: background-color 0.25s ease-out, color 0.25s ease-out;
-*/
+
 // 12. Button Group
 // ----------------
 /*
@@ -446,7 +446,7 @@ $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
 $offcanvas-exit-background: rgba($white, 0.25);
 $maincontent-class: 'off-canvas-content';
-
+*/
 // 25. Orbit
 // ---------
 
@@ -461,7 +461,7 @@ $orbit-caption-padding: 1rem;
 $orbit-control-background-hover: rgba($black, 0.5);
 $orbit-control-padding: 1rem;
 $orbit-control-zindex: 10;
-
+/*
 // 26. Pagination
 // --------------
 
@@ -628,12 +628,18 @@ $topbar-unstack-breakpoint: small;
 
 ::-moz-selection { background: $secondary-color; color: black; }
 ::selection { background: $secondary-color; color: black; }
+@media only screen and (min-width: 28em) {
+    .row{
+        padding-left: 1.375rem;
+        padding-right: 1.375rem;
+        width: auto;
+    }
+}
 
     // Top-nav
 .top-bar a {
-    font-family: $font-family-monospace;
-    color: $secondary-color;
-    font-weight: $additional-font-weight;
+    color: $primary-color;
+    font-size: rem-calc(18);
     -moz-transition: all .15s ease-out;
     -o-transition: all .15s ease-out;
     -webkit-transition: all .15s ease-out;
@@ -643,12 +649,12 @@ $topbar-unstack-breakpoint: small;
     span {
         font-size: rem-calc(16);
         /*  shadows render better in certain browsers than text, first rule is for older browser support  */
-        color: $secondary-color;
+        color: $primary-color;
         color: transparent;
-        text-shadow: 0 0 $secondary-color, .1em 0 0 $light-gray, 0 0, -.1em 0 0 $light-gray;//text offset for descenders
+        text-shadow: 0 0 $white, .1em 0 0 $white, 0 0, -.1em 0 0 $white;//text offset for descenders
         /*  gradient background allows us to use css only & re-position it  */
-        background: -webkit-linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
-        background: linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
+        background: -webkit-linear-gradient($white, $white) center .9em no-repeat;
+        background: linear-gradient($white, $white) center .9em no-repeat;
         /*  can precisely control size in relation to the text  */
         background-size: 100% 1px;
         /*  now the underline supports transitions  */
@@ -658,17 +664,23 @@ $topbar-unstack-breakpoint: small;
 
     span:hover {
         //background-size: 100% 1px;
-        color: $primary-color;
+        color: $white;
         //background: -webkit-linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
         //background: linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
     }    
+}
+
+.top-bar-title {
+    //font-size: rem-calc(21);
+    font-style: italic;
+    font-weight: 800;
 }
 
 .fixed-custom {
     position:fixed;
     z-index: 99;
     width:100%;
-    background-color: rgba($light-gray, 0.9);
+    background-color: rgba($black, 0.8);
 }
 
     // Footer
@@ -728,54 +740,33 @@ footer  {
 // Home
 
 .hero-home {
-        padding-top: 1.84rem;
-        background-color: $light-gray;
-        h1  {
-            font-weight: 400;
-            padding-right: 1.5rem;
-            margin-top: 2rem;
-            @include breakpoint(large) {
-                margin: 6.8rem 0 11.125rem 0;
-            }
-                strong {
-                    font-weight: 900;
-            }
-        }
-        p {
-            font-size: rem-calc(14);
-            line-height: 1.429;
-            padding-top: 1.42rem;
-            margin-top: 1.84rem;
-                @include breakpoint(medium) {
-                    margin-bottom: 2.5rem;
-            }
-                @include breakpoint(large) {
-                    margin: 12.8rem 0 6.5rem 0;
-                }
-        }
-        .bio-home {    
-            background-image: url(/images/home/wave-long.svg);
-            background-position: left top;
-            background-repeat: no-repeat;
-        }
-        .experience-home {
-            margin: -1.51rem 0 2.5rem 0;
-                @include breakpoint(medium) {
-                    padding-top: 1.42rem;
-                    margin-top: 1.84rem;
-                    background-image: url(/images/home/wave-long.svg);
-                    background-position: left top;
-                    background-repeat: no-repeat;
-            }
-                @include breakpoint(large) {
-                    margin-top: 12.8rem;
-                }
-        }
-             
+    padding-top: 11.84rem;
+    background-color: $black;
+    @include breakpoint(medium) {
+        background-image: url("/images/home/letters.svg");
+        background-repeat: no-repeat;
+        background-position: 20rem 2.5rem;
     }
+    @include breakpoint(large) {
+        background-position: 50rem 2.5rem;
+    }
+    h1  {
+        font-weight: 800;
+        padding-right: 1.5rem;
+        margin-top: 2rem;
+        //font-size: rem-calc(92);
+        color: $white;
+    }
+    p {
+        font-size: rem-calc(24);
+        margin-top: 0;
+        margin-bottom: 13rem;
+        color: $primary-color;
+    }
+}
 
-.projects-home {
-    background-color: $white;
+.retail-home {
+    background-color: blue;
     padding-top: 3.25rem;
 }
 
@@ -790,40 +781,6 @@ footer  {
     @media only screen and (min-width: 64em) {
         column-count: 2;
         width: 61rem;
-    }
-}
-
-.project-home {
-    //padding: 0 1rem 0 1rem;
-    display: inline-block;
-    margin: 0 0 1em 0;
-    width: 100%;
-    max-width: 29.8rem;
-    -moz-transition: all .15s ease-out;
-    -o-transition: all .15s ease-out;
-    -webkit-transition: all .15s ease-out;
-    transition: all .15s ease-out;
-    h4 {
-        margin-left: 1.5rem;
-        font-family: $additional-font-family;
-        line-height: 1.333;
-        padding-top: 1.59rem;
-    }
-    h4:before {
-      content: "";
-      display: block;
-      width: 4rem;
-      height: 12px;
-      margin: -1.59rem 0 .8rem 0;
-      background-position: left top;
-      background-size: 4rem 0.75rem;
-      background-repeat: no-repeat;
-    }
-    p {
-        margin-left: 1.5rem;
-    }
-    @include breakpoint(medium) {    
-        width: 31.25rem;
     }
 }
 
@@ -843,40 +800,6 @@ footer  {
   background-repeat: repeat;
 }
 
-.ryanair-home:hover h4:before{
-    animation: stripes 1s ease;
-    background-repeat: repeat;
-  }
-
-.runtastic-home:hover h4:before{
-  animation: stripes 1s ease;
-  background-repeat: repeat;
-}
-
-.libra-home:hover h4:before{
-  animation: stripes 1s ease;
-  background-repeat: repeat;
-}
-
-.aleo-home:hover h4:before{
-  animation: stripes 1s ease;
-  background-repeat: repeat;
-}
-
-.zalando-home:hover h4:before{
-  animation: stripes 1s ease;
-  background-repeat: repeat;
-}
-
-.sleep-home:hover h4:before{
-  animation: stripes 1s ease;
-  background-repeat: repeat;
-}
-
-.print-home:hover h4:before{
-  animation: stripes 1s ease;
-  background-repeat: repeat;
-}
 //Hover animation end
 
 @keyframes stripes {
@@ -889,326 +812,7 @@ footer  {
     background-color: hsl(197, 2%, 90%);
 }
 
-.libra-home, .runtastic-home { //blue BG
-    background-color: $primary-color;
-    p {
-        color: white;
-    }
-    h4 {
-        color: white;
-        background-position: left top;
-        background-repeat: no-repeat;
-    }
-    h4:before {
-      background-image: url(/images/home/wave.svg);
-    }
-}
-
-.libra-home:hover, .runtastic-home:hover {
-    background-color: hsl(197, 49%, 28%);
-}
-
-.sleep-home, .ryanair-home, .zalando-home { //orange BG
-    background-color: $secondary-color;
-    h4 {
-        color: white;
-        background-position: left top;
-        background-repeat: no-repeat;
-    }
-    p {
-        color: $black;
-    }
-    h4:before {
-      background-image: url(/images/home/wave-alt.svg);
-    }
-}
-
-.sleep-home:hover, .ryanair-home:hover, .zalando-home:hover {
-    background-color: #E75B39;
-}
-
-    // Single projects on home
-
-.ibm-home {
-    margin-bottom: 2.625rem;
-    img {
-        width: 100%;
-        padding: 1.35rem 1.5rem 2.44rem 1.5rem;
-    }
-    p {
-        margin-bottom: 1.5rem;
-    }
-    @media only screen and (max-width: 22em) {
-        h4 {
-            padding-right: 1.5rem;
-        }
-    }
-}
-
-.ryanair-home {
-    margin: 5.1rem 0 2.3rem 0;
-    img {
-        width: 68%;
-        margin: -5.5rem 1.2rem 0.5rem 8rem;
-    }
-    p {
-        margin-bottom: 1.5rem;
-    }
-    @media only screen and (max-width: 22em) {
-        h4 {
-            padding-right: 1.5rem;
-        }
-    }
-    @media only screen and (max-width: 33.125em) {
-        img {
-            margin: -5.5rem 1.2rem 0.5rem 5rem
-        }
-    }
-}
-
-.runtastic-home {
-    margin-top: 2.9rem;
-    margin-bottom: 3rem;
-    @include breakpoint(medium) {
-        margin-top: 4.6rem;
-    }
-    img {
-        max-width: 13.625rem;
-        margin: -13.06rem 2.25rem -1rem 0;
-        float: right;
-        @media only screen and (max-width: 22em) {
-            margin: -13.06rem 0.7rem -1rem 0; 
-        }
-        @media only screen and (max-width: 33.125em) {
-            max-width: 9rem;
-            }
-        }
-    h4 {
-        margin-top: 1.94rem;
-    }
-    p {
-        @media only screen and (max-width: 33.125em) {
-            width: 5.5rem;
-        }
-    }
-}
-
-.libra-home {
-    margin-bottom: 4rem;
-    img {
-        max-width: 17.5rem;
-        margin: -6.685rem 0.44rem -2.06rem 0;
-        float: right;
-        @media only screen and (max-width: 33.125em) {
-            max-width: 13.5rem;
-            margin-top: 0;
-        }
-    }
-    h4 {
-        margin-top: 1.94rem;
-    }
-}
-
-.aleo-home {
-    margin-top: 2rem;
-    margin-bottom: 2.5rem;
-    img {
-        max-width: 18.875rem;
-        margin: -17rem 0.5rem 5.44rem 0;
-        float: right;
-        @media only screen and (max-width: 33.125em) {
-            max-width: 15rem;
-            }
-        }
-    h4 {
-        margin-top: 8.25rem;
-    }
-}
-
-.zalando-home {
-    margin-bottom: 4.5rem;
-    img {
-        max-width: 60%;
-        margin: 0.5rem 1.7rem -2rem auto;
-        float: right;
-        }
-    h4 {
-        margin-top: 1.875rem;
-    }
-}
-
-.sleep-home {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    img {
-        max-width: 13.625rem;
-        margin: -15.4rem 0.69rem -1.25rem 0;
-        float: right;
-        @media only screen and (max-width: 33.125em) {
-                max-width: 12rem;
-                margin-top: -3rem;
-            }
-        @media only screen and (max-width: 22) {
-                margin-top: 0;
-            }
-        }
-    h4 {
-        margin-top: 5.31rem;
-        @media only screen and (max-width: 33.125em) {
-            margin-top: 2rem;
-        }
-    }
-}
-
-.print-home {
-    margin-bottom: 3.25rem;
-    img {
-        max-width: 87.7%;
-        margin-top: 2.25rem;
-        float: right;
-        }
-    h4 {
-        margin-top: 18.19rem;
-        @media only screen and (max-width: 33.125em) {
-            margin-top: 17.5rem;
-        }
-        @media only screen and (max-width: 22em) {
-            margin-top: 14.5rem;;
-        }
-    }
-    p {
-        margin-bottom: 1.625rem;
-    }
-}
-
-.spacer-home {
-    margin-bottom: -7.7rem;
-}
-
-//Projects
-.hero-project {
-        background-color: $light-gray;
-}
-
-.hero-project {
-    h1 {
-        margin: 4.25rem 0 0.688rem 0;
-        @include breakpoint(medium) {
-            margin-top: 6.25rem;
-        }
-    }
-    p {
-        margin-bottom: 2.445rem;
-    }
-}
-
-.project-info {
-    h5 {
-        font-family: $additional-font-family;
-        padding-top: 1.62rem;
-        font-size: rem-calc(14);
-    }
-    p {
-        margin-top: -0.5rem;
-    }
-}
-
-.first-project-info {
-    background-image: url(/images/home/wave.svg);
-    background-position: left top;
-    background-repeat: no-repeat;
-}
-
-.project-main {
-    background-color: white;
-    padding-bottom: 3rem;
-}
-
-.project-story {
-    margin: 0 auto;
-    max-width: 40.625rem;
-    @media (max-width:50.625rem) and (min-width:41.875rem) {
-        max-width: 33rem;
-    }
-    small {
-        font-size: rem-calc(13);
-        color: $medium-gray;
-        line-height: 1rem;
-    }
-    h6 {
-        font-family: $additional-font-family;
-        color: $medium-gray;
-        margin: 1.6875rem 0 0.125rem 0;
-    }
-    h3 {
-        line-height: 2.75rem;
-        margin-bottom: 0.375rem;
-    }
-    p {
-        margin-bottom: 2.4375rem;
-    }
-    figcaption {
-        color: $medium-gray;
-        padding: 0.25rem 0 0.75rem 0;
-    }
-    a {
-        -moz-transition: all .15s ease-out;
-        -o-transition: all .15s ease-out;
-        -webkit-transition: all .15s ease-out;
-        transition: all .15s ease-out;
-        font-weight: 700;
-        color: $secondary-color;
-    }
-    a:hover {
-        color: $primary-color;
-        }
-}
-
-.p-between-img { //to space paragraphs between two images
-    margin-top: 1.5rem;
-}
-
-.img-between-img {
-    margin-top: 2rem;
-}
-
-.first-spacer {
-    margin-bottom: 1rem;
-}
-
-    //Project bottom nav
-    //Shared prev-next styles
-.project-nav {
-    background-color: #D1E6EE;
-}
-
-.project-nav-text {
-    -moz-transition: all .15s ease-out;
-    -o-transition: all .15s ease-out;
-    -webkit-transition: all .15s ease-out;
-    transition: all .15s ease-out;
-    font-family: $additional-font-family;
-    color: $primary-color;
-    padding-top: 3rem;
-}
-
-.project-nav-title {
-    -moz-transition: all .15s ease-out;
-    -o-transition: all .15s ease-out;
-    -webkit-transition: all .15s ease-out;
-    transition: all .15s ease-out;
-    color: $black;
-    margin-top: -1.25rem;
-    font-weight: 700;
-    font-size: rem-calc(16);
-    @include breakpoint(medium) {
-        font-size: 2rem;
-        font-family: $header-font-family;
-        font-weight: 900;
-    }
-}
-
-    //Prev styles
+//Prev styles
 .previous-project {
     -moz-transition: all .15s ease-out;
     -o-transition: all .15s ease-out;
@@ -1300,325 +904,6 @@ footer  {
     @include breakpoint(medium) {
         padding-right: 3.625rem;
         padding-left: 1rem;
-    }
-}
-
-//IBM
-
-.ibm-project.project-info{
-    img {
-        margin: 0 0 -2rem 0;
-    }
-}
-
-.ibm-project.project-story {
-    padding-top: 2.5rem;
-    @include breakpoint(large) {
-        padding-top: 4.375rem;
-    }
-}
-
-.ibm-project {
-    h3 span {
-        text-decoration: line-through;
-        color: $medium-gray;
-    }
-}
-
-.large-img-ibm {
-    width: 100%;
-    background-color: white;   
-    img {
-        margin: -3rem 0 0 0;
-    }
-}
-
-//Ryanair
-
-.ryanair-project.project-info{
-    img {
-        max-width: 125%;
-        margin: -8.6rem 0 -4rem -4.3rem;
-    }
-}
-
-//Runtastic
-
-.runtastic-project.project-info{
-    img {
-        max-width: 17.06rem;
-        margin: -14.06rem 0 -5.375rem 5.5rem;
-    }
-}
-
-.runtastic-project.project-story {
-    padding-top: 2.5rem;
-    @include breakpoint(large) {
-        padding-top: 4.375rem;
-    }
-}
-
-p.runtastic-leaderboard-img {
-    margin: 1.5rem 0;
-}
-
-.runtastic-pattern-img {
-    margin: 2rem 0 1.5rem 0;
-}
-
-.runtastic-london-img {
-    margin: 1.5rem 0;
-}
-
-//Libra
-.libra-project.project-info{
-    img {
-        max-width: 20.06rem;
-        margin: -15.06rem 0 -3rem 5.5rem;
-    }
-}
-
-.libra-project.project-story {
-    padding-top: 2.5rem;
-    @include breakpoint(large) {
-        padding-top: 3.375rem;
-    }
-}
-
-.libra-animation {
-    img {
-        max-width: 60%;
-        margin-left: 20%;
-    }
-    @include breakpoint(medium) {
-        figcaption {
-            text-align: center;
-        }
-    }
-}
-
-.libra-reviews {
-    max-width: 80%;
-    @include breakpoint(medium) {
-        img {
-            max-width: 24.94rem;
-        }
-    }
-}
-
-//Aleo
-
-.aleo-download-link {
-    font-weight: 700;
-    color: $secondary-color;
-    -moz-transition: all .15s ease-out;
-    -o-transition: all .15s ease-out;
-    -webkit-transition: all .15s ease-out;
-    transition: all .15s ease-out;
-}
-
-.aleo-project.project-info{
-    img {
-        max-width: 18.875rem;
-        margin: -10.7rem 0 -3rem 5.5rem;
-    }
-    p {
-        padding-bottom: 2rem;
-    }
-}
-
-.aleo-project.project-story {
-    padding-top: 2.5rem;
-}
-
-/*My planet from space
-
-.planet-project.project-info{
-    @media only screen and (max-width: 41.875em) {
-            padding-bottom: 2rem;
-        }
-    img {
-        max-width: 18.875rem;
-        margin: -12.8875rem 0 -4rem 0;
-    }
-    p {
-        @media only screen and (max-width: 41.875em) {
-            margin-bottom: 0.2rem;
-        }
-        @include breakpoint(medium) {
-        padding-bottom: 2rem;
-        }
-    }
-}
-
-.planet-project.project-story {
-    padding-top: 2.5rem;
-}
-
-.planet-narrow-img {
-    img {
-        max-width: 70%;
-        margin-left: 15%;
-    }
-}*/
-
-//Ryanair car hire
-
-.ryanair-project.project-story {
-    padding-top: 2.5rem;
-}
-
-//Sleep better
-.sleep-project.project-info{
-    img {
-        max-width: 24.4375rem;
-        margin: -14.685rem 0 0 5.1rem;
-    }
-}
-
-.sleep-project.project-story {
-    padding-top: 2.5rem;
-}
-
-.sleep-video {
-    max-width: 55%;
-    margin-left: 22.5%;
-}
-
-//Zalando Business Platform
-.zalando-project.project-info{
-    img {
-        //max-width: 22rem;
-        margin: -15.06rem 0 -11rem 1.4rem;
-    }
-}
-
-.zalando-project.project-story {
-    padding-top: 2.5rem;
-    @include breakpoint(large) {
-        padding-top: 3.375rem;
-    }
-
-    figcaption{
-        padding-bottom: 2rem;
-        }
-    
-    p.with-ul {
-        margin-bottom: 0;       
-    }
-}
-
-
-
-//Graphic design
-.project-info.print-project {
-    padding-bottom: 2rem;
-}
-
-.print-project.project-story {
-    padding-top: 2.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.print-project {
-    h6.print-spacer {
-        margin-top: 4.5rem;
-    }
-
-    figcaption {
-        margin-bottom: 2.5rem;}
-}
-
-//About
-.about-page{
-    h1 {
-        font-size: rem-calc(36);
-        background-image: url(/images/home/wave.svg);
-        background-position: left top;
-        background-repeat: no-repeat;
-        padding-top: 1.5625rem;
-    }
-}
-
-.work-experience-about {
-    background-color: $light-gray;
-    @include breakpoint(medium) {
-        background-image: url(/images/about/map.png);
-        background-position: right top;
-        background-repeat: no-repeat;
-        background-size: 50%;
-    }
-    @include breakpoint(large) {
-        background-size: 40.625rem;
-    }
-    h1 {
-        margin: 5.25rem 0 4.875rem 0;
-        @include breakpoint(medium) {
-            margin: 8.31rem 0 5.375rem 0;
-        }
-    }
-    img {
-        max-width:7.125rem;
-        padding-bottom: 0.9rem;
-    }
-    h5 {
-        font-family: $additional-font-family;
-        font-size: rem-calc(16);
-        color: $medium-gray;
-    }
-    h2 {
-        font-size: rem-calc(28);
-    }
-    p {
-        padding-bottom: 4.1875rem;
-    }
-}
-
-.ibm-about {
-    img {
-        @include breakpoint(large) {
-            margin-top: 0.6875rem;
-        }
-    }
-}
-
-.vertigo-about {
-    img {
-        @include breakpoint(large) {
-            margin-top: 1.0625rem;
-        }
-    }
-}
-
-.brands-about {
-    background-color: white;
-    padding-bottom: 1rem;
-    h1 {
-        margin: 4.375rem 0 4.5rem 0;
-    }
-    img {
-        max-width: 9.25rem;
-        max-height: 6.125rem;
-        margin-bottom: 3.875rem;
-    }
-}
-
-.find-out-more-about {
-    background-color: $light-gray;
-    h1 {
-        margin: 4.375rem 0 0.625rem 0;
-    }
-    p {
-        font-size: rem-calc(20);
-        margin-bottom: 4.125rem;
-    }
-    a {
-        font-weight: 700;
-        color: $secondary-color;
-        -moz-transition: all .15s ease-out;
-        -o-transition: all .15s ease-out;
-        -webkit-transition: all .15s ease-out;
-        transition: all .15s ease-out;
     }
 }
 
