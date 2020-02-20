@@ -4,19 +4,49 @@
 {% extends "_layout.html" %}
 
 {% block content %}
-<!-- Top nav -->
+<!--<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar" id="responsive-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Site Title</li>
+      <li class="has-submenu">
+        <a href="#0">One</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a href="#0">One</a></li>
+          <li><a href="#0">Two</a></li>
+          <li><a href="#0">Three</a></li>
+        </ul>
+      </li>
+      <li><a href="#0">Two</a></li>
+      <li><a href="#0">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div> -->
+
+<!-- Top nav-->
 <div class="fixed-custom">
     <nav class="top-bar">
         <a href="/" class="top-bar-title">Alessio Laiso Type</a>
         <div class="top-bar-left">
             <ul class="menu">
-                <li><a href="#">Retail fonts</a></li> <!-- Use span to underline -->
-                <li><a href="/about">Custom fonts</a></li>
-                <li><a href="/about">About</a></li>
+                <li class="hide-for-small-only"><a href="#">Retail fonts</a></li>
+                <li class="hide-for-small-only"><a href="/about">Custom fonts</a></liclass="hide-for-small-only">
+                <li class="hide-for-small-only"><a href="/about">About</a></li>
             </ul>
         </div>
         <div class="top-bar-right">
             <ul class="menu">
+                <!--<li><button type="button" class="button hide-for-small-only">Go to shop</button></li>-->
                 <li class="hide-for-small-only"><a href="#" class="button">Go to shop</a></li>
             </ul>
         </div>
@@ -32,8 +62,17 @@
     <div class="row">
         <div class="small-12 medium-10 large-7 large-offset-1 columns">
             <p>Typefaces that make your brand shine, from an independent type foundry</p>
+            <!--HERE-->
+            <button class="button" type="button" data-toggle="sample-dropdown"><a href="#" class="button">Go to shop</a></li>
+                <div class="dropdown-pane" id="sample-dropdown" data-dropdown data-auto-focus="true">
+                  <ul>
+                    <li>Ciao</li>
+                    <li>Ciaone</li>
+                  </ul>
+                </div>
         </div>
     </div>
+  </header>
 <!-- Retail fonts -->
 <section class="retail-home">
     <div class="row">

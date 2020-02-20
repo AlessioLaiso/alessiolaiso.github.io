@@ -1,4 +1,4 @@
-//  Foundation for Sites Settings
+//  Foundation 6 for Sites Settings
 //  -----------------------------
 //
 //  Table of Contents:
@@ -328,7 +328,7 @@ $drilldown-background: $white;
 
 // 17. Dropdown
 // ------------
-
+*/
 $dropdown-padding: 1rem;
 $dropdown-background: $body-background;
 $dropdown-border: 1px solid $medium-gray;
@@ -350,7 +350,7 @@ $dropdownmenu-arrow-size: 6px;
 $dropdownmenu-min-width: 200px;
 $dropdownmenu-background: $white;
 $dropdownmenu-border: 1px solid $medium-gray;
-
+/*
 // 19. Forms
 // ---------
 
@@ -668,6 +668,10 @@ $topbar-unstack-breakpoint: small;
         //background: -webkit-linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
         //background: linear-gradient($secondary-color, $secondary-color) center .9em no-repeat;
     }    
+}
+
+.button a {
+    color: $black;
 }
 
 .top-bar-title {
