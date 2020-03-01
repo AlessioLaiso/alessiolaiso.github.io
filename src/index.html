@@ -4,80 +4,60 @@
 {% extends "_layout.html" %}
 
 {% block content %}
-<!--<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+
+<!-- Top nav-->
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <div class="title-bar-title">Alessio Laiso Type</div>
   <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-  <div class="title-bar-title">Menu</div>
 </div>
 
-<div class="top-bar" id="responsive-menu">
+<div class="top-bar fixed-custom" id="responsive-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Site Title</li>
-      <li class="has-submenu">
-        <a href="#0">One</a>
-        <ul class="submenu menu vertical" data-submenu>
-          <li><a href="#0">One</a></li>
-          <li><a href="#0">Two</a></li>
-          <li><a href="#0">Three</a></li>
-        </ul>
-      </li>
-      <li><a href="#0">Two</a></li>
-      <li><a href="#0">Three</a></li>
+      <li class="menu-text hide-for-small-only">Alessio Laiso Type</li>
+      <ul class="menu vertical medium-horizontal">
+        <li><a href="#">Retail fonts</a></li>
+        <li><a href="/about">Custom fonts</a></liclass="hide-for-small-only">
+        <li><a href="/about">About</a></li>
+      </ul>
     </ul>
   </div>
   <div class="top-bar-right">
     <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
+      <li><button type="button" class="button hide-for-small-only">Go to shop</button></li>
     </ul>
   </div>
-</div> -->
-
-<!-- Top nav-->
-<div class="fixed-custom">
-    <nav class="top-bar">
-        <a href="/" class="top-bar-title">Alessio Laiso Type</a>
-        <div class="top-bar-left">
-            <ul class="menu">
-                <li class="hide-for-small-only"><a href="#">Retail fonts</a></li>
-                <li class="hide-for-small-only"><a href="/about">Custom fonts</a></liclass="hide-for-small-only">
-                <li class="hide-for-small-only"><a href="/about">About</a></li>
-            </ul>
-        </div>
-        <div class="top-bar-right">
-            <ul class="menu">
-                <!--<li><button type="button" class="button hide-for-small-only">Go to shop</button></li>-->
-                <li class="hide-for-small-only"><a href="#" class="button">Go to shop</a></li>
-            </ul>
-        </div>
-    </nav>
 </div>
 <!-- Hero -->
 <header class="hero-home">
-    <div class="row">
-        <div class="small-12 medium-12 large-6 large-offset-1 columns">
-            <h1>Crafting retail & custom&nbsp;fonts</h1>
+  <div class="row">
+    <div class="small-12 medium-12 large-6 large-offset-1 columns">
+      <h1>Crafting retail & custom&nbsp;fonts</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-10 large-7 large-offset-1 columns">
+      <p>Typefaces that make your brand shine, from an independent type foundry</p>
+      <!--HERE-->
+      <button class="button" type="button" data-toggle="sample-dropdown"><a href="#" class="button">Go to shop</a></li>
+        <div class="dropdown-pane" id="sample-dropdown" data-dropdown data-auto-focus="true">
+          <ul>
+            <li>Ciao</li>
+            <li>Ciaone</li>
+          </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="small-12 medium-10 large-7 large-offset-1 columns">
-            <p>Typefaces that make your brand shine, from an independent type foundry</p>
-            <!--HERE-->
-            <button class="button" type="button" data-toggle="sample-dropdown"><a href="#" class="button">Go to shop</a></li>
-                <div class="dropdown-pane" id="sample-dropdown" data-dropdown data-auto-focus="true">
-                  <ul>
-                    <li>Ciao</li>
-                    <li>Ciaone</li>
-                  </ul>
-                </div>
-        </div>
-    </div>
-  </header>
+  </div>
+</header>
 <!-- Retail fonts -->
 <section class="retail-home">
-    <div class="row">
-        <p>Test i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i </p>
-    </div>
+  <div class="row">
+    <p>Test i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i i i i i i i i i i i i i i i </p>
+  </div>
 </section>
 <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
   <div class="orbit-wrapper">
@@ -88,25 +68,33 @@
     <ul class="orbit-container">
       <li class="is-active orbit-slide">
         <figure class="orbit-figure">
-          <img class="orbit-image" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg" alt="Space">
+          <img class="orbit-image"
+            src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg"
+            alt="Space">
           <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
         </figure>
       </li>
       <li class="orbit-slide">
         <figure class="orbit-figure">
-          <img class="orbit-image" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg" alt="Space">
+          <img class="orbit-image"
+            src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg"
+            alt="Space">
           <figcaption class="orbit-caption">Lets Rocket!</figcaption>
         </figure>
       </li>
       <li class="orbit-slide">
         <figure class="orbit-figure">
-          <img class="orbit-image" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg" alt="Space">
+          <img class="orbit-image"
+            src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg"
+            alt="Space">
           <figcaption class="orbit-caption">Encapsulating</figcaption>
         </figure>
       </li>
       <li class="orbit-slide">
         <figure class="orbit-figure">
-          <img class="orbit-image" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg" alt="Space">
+          <img class="orbit-image"
+            src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=animal-pet-cute-kitten-45201.jpg&fm=jpg"
+            alt="Space">
           <figcaption class="orbit-caption">Outta This World</figcaption>
         </figure>
       </li>
