@@ -13,7 +13,7 @@
 //   8. Accordion Menu
 //   9. Badge
 //  10. Breadcrumbs
-//  11. Button
+//  11. shop-mon
 //  12. Button Group
 //  13. Callout
 //  14. Card
@@ -69,7 +69,7 @@ $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
-$global-weight-bold: bold;
+$global-weight-bold: 800; //bold 
 $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: true;
@@ -106,7 +106,7 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $body-font-family;
-$header-font-weight: bold;
+$header-font-weight: 800; //bold;
 $header-font-style: italic;
 $font-family-monospace: 'Fira Mono', Consolas, 'Liberation Mono', Courier, monospace;
 $additional-font-family: $font-family-monospace;
@@ -248,8 +248,8 @@ $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: $white;
-$button-color-alt: $black;
+$button-color: $black;
+$button-color-alt: $white;
 $button-radius: $global-radius;
 $button-sizes: (
   tiny: 0.6rem,
@@ -670,12 +670,43 @@ $topbar-unstack-breakpoint: small;
     }    
 }
 
-.button a {
+a.shop-nav-button {
+    font-family: $body-font-family;
+    font-size: rem-calc(18);
     color: $black;
+    margin-right: 1.2rem;
 }
 
-.top-bar-title {
-    //font-size: rem-calc(21);
+a.menu {
+    padding: 0.5rem 0.3rem;
+}
+
+a.shop-nav-button::after {
+    content: "";
+    display: block;
+    background: url("/images/home/arrow-right.svg") no-repeat;
+    width: 1rem;
+    height: 1rem;
+    float: right;
+    margin: 0 0.6rem 0 0.6rem;
+}
+/*
+div.title-bar { //small
+    background-color: $dark-gray;
+}*/
+
+#responsive-menu { //for medium up
+    background-color: rgba($black, 0.8);
+}
+
+.title-bar-title {
+    font-size: rem-calc(18);
+    font-style: italic;
+    font-weight: 800;
+}
+
+li.menu-text {
+    font-size: rem-calc(18);
     font-style: italic;
     font-weight: 800;
 }
