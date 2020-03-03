@@ -1,31 +1,35 @@
 {% set title = "Alessio Laiso Type" %}
 {% set description = "Alessio Laiso Type is an independent type foundry established in 2013 and based in Lisbon, Portugal." %}
+{% set nav_title = "Alessio Laiso Type" %}
 
 {% extends "_layout.html" %}
 
 {% block content %}
 
 <!-- Top nav-->
-<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
-  <div class="title-bar-title">Alessio Laiso Type</div>
-  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
-</div>
-
-<div class="top-bar fixed-custom" id="responsive-menu">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text hide-for-small-only">Alessio Laiso Type</li>
-      <ul class="menu vertical medium-horizontal">
-        <li><a href="#">Retail fonts</a></li>
-        <li><a href="/about">Custom fonts</a></liclass="hide-for-small-only">
-        <li><a href="/about">About</a></li>
-      </ul>
-    </ul>
+<div class="fixed-custom">
+  <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <div class="title-bar-title">{{ nav_title }}</div>
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
   </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li><a href="https://www.fontspring.com/foundry/alessio-laiso-type?refby=alessiolaiso" target="_blank" type="button" class="button hide-for-small-only shop-nav-button">Go to shop</a></li>
-    </ul>
+
+  <div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text hide-for-small-only">{{ nav_title }}</li>
+        <ul class="menu vertical medium-horizontal">
+          <li><a href="#">Retail fonts</a></li>
+          <li><a href="/about">Custom fonts</a></liclass="hide-for-small-only">
+          <li><a href="/about">About</a></li>
+        </ul>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a href="https://www.fontspring.com/foundry/alessio-laiso-type?refby=alessiolaiso" target="_blank"
+            type="button" class="button hide-for-small-only shop-nav-button">Go to shop</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -46,10 +50,14 @@
 <!-- Retail fonts -->
 <section class="retail-home">
   <div class="row">
-    <p>Test i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
-      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
-      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
-      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+    <p>Test i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i
+      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i
+      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i
+      i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i i
+      i
       i i i i i i i i i i i i i i i </p>
   </div>
 </section>
