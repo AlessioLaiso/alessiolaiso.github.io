@@ -754,7 +754,7 @@ footer  {
                 }
         }
         .bio-home {    
-            background-image: url(/images/home/wave-long.svg);
+            background-image: url(/portfolio/images/home/wave-long.svg);
             background-position: left top;
             background-repeat: no-repeat;
         }
@@ -763,7 +763,7 @@ footer  {
                 @include breakpoint(medium) {
                     padding-top: 1.42rem;
                     margin-top: 1.84rem;
-                    background-image: url(/images/home/wave-long.svg);
+                    background-image: url(/portfolio/images/home/wave-long.svg);
                     background-position: left top;
                     background-repeat: no-repeat;
             }
@@ -833,7 +833,7 @@ footer  {
         color: $black;
     }
     h4:before {
-      background-image: url(/images/home/wave.svg);
+      background-image: url(/portfolio/images/home/wave.svg);
     }
 }
 
@@ -900,7 +900,7 @@ footer  {
         background-repeat: no-repeat;
     }
     h4:before {
-      background-image: url(/images/home/wave.svg);
+      background-image: url(/portfolio/images/home/wave.svg);
     }
 }
 
@@ -919,7 +919,7 @@ footer  {
         color: $black;
     }
     h4:before {
-      background-image: url(/images/home/wave-alt.svg);
+      background-image: url(/portfolio/images/home/wave-alt.svg);
     }
 }
 
@@ -1114,7 +1114,7 @@ footer  {
 }
 
 .first-project-info {
-    background-image: url(/images/home/wave.svg);
+    background-image: url(/portfolio/images/home/wave.svg);
     background-position: left top;
     background-repeat: no-repeat;
 }
@@ -1215,7 +1215,7 @@ footer  {
     -webkit-transition: all .15s ease-out;
     transition: all .15s ease-out;
     @include breakpoint(medium) {
-        background-image: url(/images/home/previous.svg);
+        background-image: url(/portfolio/images/home/previous.svg);
         background-position: calc(0% + 1rem) 50%;
         background-repeat: no-repeat;
     }
@@ -1263,7 +1263,7 @@ footer  {
     text-align: right;
     background-color: #B9DEED;
     @include breakpoint(medium) {
-        background-image: url(/images/home/next.svg);
+        background-image: url(/portfolio/images/home/next.svg);
         background-position: calc(100% - 1rem) 50%;
         background-repeat: no-repeat;
         background-color: #D1E6EE;
@@ -1533,7 +1533,7 @@ p.runtastic-leaderboard-img {
 .about-page{
     h1 {
         font-size: rem-calc(36);
-        background-image: url(/images/home/wave.svg);
+        background-image: url(/portfolio/images/home/wave.svg);
         background-position: left top;
         background-repeat: no-repeat;
         padding-top: 1.5625rem;
@@ -1543,7 +1543,7 @@ p.runtastic-leaderboard-img {
 .work-experience-about {
     background-color: $light-gray;
     @include breakpoint(medium) {
-        background-image: url(/images/about/map.png);
+        background-image: url(/portfolio/images/about/map.png);
         background-position: right top;
         background-repeat: no-repeat;
         background-size: 50%;

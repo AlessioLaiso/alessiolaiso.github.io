@@ -118,7 +118,7 @@ $header-styles: (
   small: (
     'h1': ('font-size': 44),
     'h2': ('font-size': 48),
-    'h3': ('font-size': 36),
+    'h3': ('font-size': 32),
     'h4': ('font-size': 24),
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
@@ -774,8 +774,17 @@ footer  {
     a {
          color: $primary-color;
      }
-    a:hover {
+    a:hover, a:focus {
         color: $white;
+    }
+    a.footer-shop-link:after {
+        content: "";
+        display: inline-block;
+        background: url("/images/home/arrow-right-small.svg") no-repeat;
+        width: 0.75rem;
+        height: 0.75rem;
+        float: inherit;
+        margin: 0 0 0 0.4rem;
     }
     // .mail-footer {
     //     a {
@@ -801,18 +810,32 @@ footer  {
     // }
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 // Home
 
 .hero-home {
-    padding-top: 11.84rem;
+    padding-top: 5rem;
     background-color: $black;
-    @include breakpoint(medium) {
-        background-image: url("/images/home/letters.svg");
-        background-repeat: no-repeat;
-        background-position: 75% 2.5rem;
+    background-image: url("/images/home/letters.svg");
+    background-repeat: no-repeat;
+    background-size: 15rem;
+    background-position: 85% 4rem;
+    @media only screen and (min-width: 768px) {
+        padding-top: 11.84rem;
+        background-position: 90% 2.5rem;
+        background-size: unset;
     }
-    @include breakpoint(large) {
-        background-position: 75% 2.5rem;
+    @media only screen and (min-width: 1280px) {
+        background-position: 80% 2.5rem;
+    }
+    @media only screen and (min-width: 1600px) {
+        background-position: 72% 2.5rem;
+    }
+    @media only screen and (min-width: 2200px) {
+        background-position: 65% 2.5rem;
     }
     h1  {
         font-weight: 800;
@@ -824,14 +847,20 @@ footer  {
     p {
         font-size: rem-calc(24);
         margin-top: 0;
-        margin-bottom: 11rem;
+        margin-bottom: 5rem;
         color: $primary-color;
+        @media only screen and (min-width: 768px) {
+            margin-bottom: 11rem;
+        }
     }
 }
 
 .retail-home, .trusted-home, .custom-home {
     background-color: $black;
-    margin-top: 5.375rem;
+    padding-top: 3rem;
+    @media only screen and (min-width: 768px) {
+        padding-top: 5.375rem;
+    }
     h3 {
         color: $white;
         //margin-top: 1rem;
@@ -846,8 +875,16 @@ footer  {
         color: $white;
         text-decoration: underline;
     }
-    a:hover {
+    a:hover, a:focus {
         color: $primary-color;
+    }
+}
+
+    .custom-home {
+    @media only screen and (max-width: 768px) {
+        img {
+            margin-top: 1rem;
+        }
     }
 }
 
@@ -855,11 +892,11 @@ footer  {
     a.retail-home-link:after {
         content: "";
         display: inline-block;
-        background: url("/images/home/arrow-right-white.svg") no-repeat;
-        width: 1rem;
-        height: 1rem;
+        background: url("/images/home/arrow-right-small.svg") no-repeat;
+        width: 0.75rem;//1rem;
+        height: 0.75rem;//1rem;
         float: inherit;
-        margin: 0 0 0 0.8rem;
+        margin: 0 0 0 0.6rem;
     }
 }
 
@@ -868,7 +905,9 @@ footer  {
 }
 
 .retail-other-fonts {
-    margin-top: 3.75rem;
+    @media only screen and (min-width: 768px) {
+        margin-top: 3.75rem;
+    }
 }
 
 .card-pani {
@@ -893,13 +932,15 @@ div.card-crossfade {
     background-position-x: .6875rem;
     padding-right: .6875rem;
     padding-left: .6875rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 .card-crossfade img {
-	-webkit-transition: all ease 0.5s;
-	-moz-transition: all ease 0.5s;
-	-o-transition: all ease 0.5s;
-	-ms-transition: all ease 0.5s;
-    transition: all ease 0.5s;
+	-webkit-transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	-moz-transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+	-o-transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -ms-transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 .card-crossfade img:hover {
     opacity: 0;
