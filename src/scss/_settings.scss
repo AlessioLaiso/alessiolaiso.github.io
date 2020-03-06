@@ -83,7 +83,7 @@ $print-transparent-backgrounds: true;
 $breakpoints: (
   small: 0,
   medium: 768px,
-  large: 1280px //1024px,
+  large: 1280px, //1024px,
   //xlarge: 1200px,
   //xxlarge: 1440px,
 );
@@ -116,7 +116,7 @@ $header-lineheight: 1.143;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 48),
+    'h1': ('font-size': 44),
     'h2': ('font-size': 48),
     'h3': ('font-size': 36),
     'h4': ('font-size': 24),
@@ -670,11 +670,7 @@ $topbar-unstack-breakpoint: small;
     }    
 }
 
-.top-bar a:hover {
-    color: $white;
-} 
-
-.top-bar a:focus {
+.top-bar a:focus, .top-bar a:hover {
     color: $white;
 } 
 
@@ -693,6 +689,10 @@ a.shop-nav-button {
     font-size: rem-calc(18);
     color: $black;
     margin-right: 1.2rem;
+}
+
+a.shop-nav-button:hover {
+    color: $black;
 }
 
 a.menu {
@@ -749,57 +749,56 @@ li.menu-text {
 }
 
     // Footer
-.footer-background {
-    background-color: $primary-color;
-}
 
 footer  {
+    background-color: $dark-gray;
     color: white;
-    .get-in-touch {
-        margin: 3.56rem 0 -0.46rem 0;
-        @media only screen and (min-width: 41.8em) {
-            margin-top: 3.56rem;
-        }
-        @media only screen and (min-width: 52em) {
-            margin-top: 0rem;
-        }
-        /*@include breakpoint(medium) {
-            margin-top: 0rem;
-        }*/
-    }
-    a {
-        -moz-transition: all .15s ease-out;
-        -o-transition: all .15s ease-out;
-        -webkit-transition: all .15s ease-out;
-        transition: all .15s ease-out;
-        color: white;
-    }
-    a:hover {
+    margin-top: 3rem;
+    padding-bottom: 3.5rem;
+    h4 {
+        margin: 3.375rem 0 0.15rem 0;
         color: $white;
-        opacity: 0.7;
     }
-    .mail-footer {
-        a {
-        text-decoration: underline;
-        font-weight: 700;
-        font-size: rem-calc(24);
-        padding-bottom: 0rem;
-        }
-    }
-    .social-home {
-        margin: 2rem 0 1rem 0;
-        @include breakpoint(medium) {
-            margin: 3.8rem 0.5rem 0 0;
-        }
-    }
-    .social-icons {
-        margin: 7rem 0.5rem 0 1rem;
+    p {
+        margin-bottom: 0.2rem;
     }
     .copyright {
-        color: #C0D4DC;
-        font-size: rem-calc(14);
-        margin: 1rem 0 1.19rem 1rem;
+        font-size: rem-calc(12);
+        color: $medium-gray;
     }
+    h6 {
+        margin: 3.75rem 0 0.375rem 0;
+        font-style: normal;
+        text-transform: uppercase;
+    }
+    a {
+         color: $primary-color;
+     }
+    a:hover {
+        color: $white;
+    }
+    // .mail-footer {
+    //     a {
+    //     text-decoration: underline;
+    //     font-weight: 700;
+    //     font-size: rem-calc(24);
+    //     padding-bottom: 0rem;
+    //     }
+    // }
+    // .social-home {
+    //     margin: 2rem 0 1rem 0;
+    //     @include breakpoint(medium) {
+    //         margin: 3.8rem 0.5rem 0 0;
+    //     }
+    // }
+    // .social-icons {
+    //     margin: 7rem 0.5rem 0 1rem;
+    // }
+    // .copyright {
+    //     color: #C0D4DC;
+    //     font-size: rem-calc(14);
+    //     margin: 1rem 0 1.19rem 1rem;
+    // }
 }
 
 // Home
@@ -810,10 +809,10 @@ footer  {
     @include breakpoint(medium) {
         background-image: url("/images/home/letters.svg");
         background-repeat: no-repeat;
-        background-position: 20rem 2.5rem;
+        background-position: 75% 2.5rem;
     }
     @include breakpoint(large) {
-        background-position: right;//50rem 2.5rem;
+        background-position: 75% 2.5rem;
     }
     h1  {
         font-weight: 800;
@@ -825,57 +824,109 @@ footer  {
     p {
         font-size: rem-calc(24);
         margin-top: 0;
-        margin-bottom: 13rem;
+        margin-bottom: 11rem;
+        color: $primary-color;
+    }
+}
+
+.retail-home, .trusted-home, .custom-home {
+    background-color: $black;
+    margin-top: 5.375rem;
+    h3 {
+        color: $white;
+        //margin-top: 1rem;
+    }
+    p {
+        font-size: rem-calc(21);
+        margin-bottom: 0;
+    }
+    a {     
+        font-size: rem-calc(21);
+        font-weight: 800;
+        color: $white;
+        text-decoration: underline;
+    }
+    a:hover {
         color: $primary-color;
     }
 }
 
 .retail-home {
-    background-color: blue;
-    padding-top: 3.25rem;
-}
-
-.masonry {
-    column-count: 1;
-    column-gap: 1.3rem;
-    width: 95%;
-    margin: 0 auto;
-    @media only screen and (min-width: 33.125em) {
-        width: 31.25rem;
-    }
-    @media only screen and (min-width: 64em) {
-        column-count: 2;
-        width: 61rem;
+    a.retail-home-link:after {
+        content: "";
+        display: inline-block;
+        background: url("/images/home/arrow-right-white.svg") no-repeat;
+        width: 1rem;
+        height: 1rem;
+        float: inherit;
+        margin: 0 0 0 0.8rem;
     }
 }
 
-.ibm-home, .aleo-home, .print-home { //grey BG //animation start
-    background-color: $light-gray;
-    p {
-        color: $black;
-    }
-    h4:before {
-      background-image: url(/images/home/wave.svg);
-    }
+.home-retail-card {
+    width: 55.5rem;
 }
 
-//Hover animation start
-.ibm-home:hover h4:before{
-  animation: stripes 1s ease;
-  background-repeat: repeat;
+.retail-other-fonts {
+    margin-top: 3.75rem;
 }
 
-//Hover animation end
-
-@keyframes stripes {
-  100% {
-    background-position: 2rem 0;
-  }
+.card-pani {
+    background-image: url('/images/home/font-cards/retail-pani-sans-hover.svg');
 }
 
-.ibm-home:hover, .aleo-home:hover, .print-home:hover {
-    background-color: hsl(197, 2%, 90%);
+.card-aleo {
+    background-image: url('/images/home/font-cards/retail-aleo-hover.svg');
 }
+
+.card-lagu-sans {
+    background-image: url('/images/home/font-cards/retail-lagu-sans-hover.svg');
+}
+
+.card-lagu-serif {
+    background-image: url('/images/home/font-cards/retail-lagu-serif-hover.svg');
+}
+
+div.card-crossfade { 
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: .6875rem;
+    padding-right: .6875rem;
+    padding-left: .6875rem;
+}
+.card-crossfade img {
+	-webkit-transition: all ease 0.5s;
+	-moz-transition: all ease 0.5s;
+	-o-transition: all ease 0.5s;
+	-ms-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+}
+.card-crossfade img:hover {
+    opacity: 0;
+}
+
+.trusted-logos-home {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+// //Hover animation start
+// .ibm-home:hover h4:before{
+//   animation: stripes 1s ease;
+//   background-repeat: repeat;
+// }
+
+// //Hover animation end
+
+// @keyframes stripes {
+//   100% {
+//     background-position: 2rem 0;
+//   }
+// }
+
+// .ibm-home:hover, .aleo-home:hover, .print-home:hover {
+//     background-color: hsl(197, 2%, 90%);
+// }
 
 //Prev styles
 .previous-project {
