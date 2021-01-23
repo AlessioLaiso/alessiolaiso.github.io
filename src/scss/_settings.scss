@@ -69,7 +69,7 @@ $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: normal;
-$global-weight-bold: 800; //bold 
+$global-weight-bold: 800;
 $global-radius: 0;
 $global-text-direction: ltr;
 $global-flexbox: true;
@@ -949,6 +949,17 @@ div.card-crossfade {
 .trusted-logos-home {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+}
+
+// Retail fonts
+
+.header-retail {
+    h3{
+        margin-top: rem-calc(84);
+    }
+    p{
+        font-size: rem-calc(18);
+    }
 }
 
 // //Hover animation start
