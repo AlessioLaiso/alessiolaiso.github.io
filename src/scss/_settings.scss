@@ -956,8 +956,21 @@ div.card-crossfade {
 .header-retail {
     h3{
         margin-top: rem-calc(84);
+        color:$white;
     }
     p{
+        margin-block-end: rem-calc(28);
+    }
+}
+
+.retail-description {
+    margin-top: rem-calc(36);
+    h4 {
+        color: $white;
+        font-size: rem-calc(21);
+        margin-bottom: rem-calc(20);
+    }
+    p {
         font-size: rem-calc(18);
     }
 }
