@@ -626,8 +626,8 @@ $topbar-unstack-breakpoint: small;
 
 //Global
 
-::-moz-selection { background: $secondary-color; color: black; }
-::selection { background: $secondary-color; color: black; }
+::-moz-selection { background: #F6EDE9; color: black; }
+::selection { background: #F6EDE9; color: black; }
 @media only screen and (min-width: 28em) {
     .row{
         padding-left: 1.375rem;
@@ -739,6 +739,7 @@ li.menu-text {
     font-size: rem-calc(18);
     font-style: italic;
     font-weight: 800;
+    padding: 0;
 }
 
 .fixed-custom {
@@ -972,7 +973,21 @@ div.card-crossfade {
     }
     p {
         font-size: rem-calc(18);
+        margin-bottom: rem-calc(24);
     }
+    h5 {
+        color: $white;
+        margin-bottom: rem-calc(24);
+    }
+}
+
+a.retail-button {
+    width: 100%;
+    text-align: left;
+}
+
+a.retail-button::after {
+    margin: 0;
 }
 
 // //Hover animation start
@@ -1090,12 +1105,15 @@ div.card-crossfade {
 
 //404
 .notfound-page {
-    h6 {
-        padding-top: 8rem;
+ .project-story {
+     margin-left: 1rem;
+     h6 {
+        margin-top: 10rem;
     }
-    video {
-        width: 100%;
-    }
+ }
+ p {
+     font-size: rem-calc(18);
+ }
 }
 
 .notfound-page.footer-background {
@@ -1103,7 +1121,5 @@ div.card-crossfade {
 }
 
 .notfound-page {
-    nav {
         margin-top: 1.8rem;        
-    }
 }

@@ -12,28 +12,42 @@ permalink: /404.html
 {% endblock %}
 
 {% block content %}
-<!-- Top nav -->
+<!-- Top nav-->
 <div class="fixed-custom">
-    <nav class="top-bar notfound-page">
-        <a href="/" class="top-bar-title">Alessio Laiso</a>
-        <div class="top-bar-right">
-            <ul class="menu">
-                <li class="hide-for-small-only"><a href="/">Projects</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <div class="title-bar-title">Alessio Laiso Type</div>
+      <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+    </div>
+  
+    <div class="top-bar notfound-page" id="responsive-menu">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text hide-for-small-only"><a href="/">Alessio Laiso Type</a></li>
+          <ul class="menu vertical medium-horizontal">
+            <li><a href="/index#retail-home-section">Retail fonts</a></li>
+            <li><a href="/custom-fonts">Custom fonts</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="https://www.fontspring.com/foundry/alessio-laiso-type?refby=alessiolaiso" target="_blank" class="external-nav hide-for-medium">Shop on Fontspring</a></li>
+            <li><a href="http://www.myfonts.com/foundry/Alessio_Laiso_Type/?refby=alessiolaiso" target="_blank" class="external-nav hide-for-medium">Shop on MyFonts</a></li>
+          </ul>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><a href="https://www.fontspring.com/foundry/alessio-laiso-type?refby=alessiolaiso" target="_blank"
+              type="button" class="button hide-for-small-only shop-nav-button">Go to shop</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 <!-- Story -->
 <section class="project-main small-12 columns">
     <div class="project-story notfound-page">
         <h6>404 error</h6>
         <h1>Page not found</h1>
-        <p>You may have typed a wrong address or the page may have moved.<br>You can <a href="/">go to the home
-                page</a>.</p>
-        <video class="hide-for-small-only" autoplay loop muted>
-            <source src="images/home/owl.webm" type="video/webm">
-        </video>
+        <p>You may have typed a wrong address or the page may have moved.</p>
+        <a href="/" type="button" class="button shop-nav-button">Go to home page</a></li>
     </div>
 </section>
 {% endblock %}
