@@ -1,0 +1,73 @@
+{% set title = "Pani Sans - Alessio Laiso Type" %}
+{% set description = "Alessio Laiso Type is an independent type foundry established in 2013 and based in Lisbon, Portugal." %}
+{% set nav_title = "Alessio Laiso Type" %}
+
+{% extends "_layout.html" %}
+
+{% block content %}
+
+<!-- Top nav-->
+<div class="fixed-custom">
+  <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+    <div class="title-bar-title">{{ nav_title }}</div>
+    <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  </div>
+
+  <div class="top-bar" id="responsive-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text hide-for-small-only"><a href="/">{{ nav_title }}</a></li>
+        <ul class="menu vertical medium-horizontal">
+          <li><a href="/index#retail-home-section">Retail fonts</a></li>
+          <li><a href="#">Custom fonts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="https://www.fontspring.com/foundry/alessio-laiso-type?refby=alessiolaiso" target="_blank" class="external-nav hide-for-medium">Shop on Fontspring</a></li>
+          <li><a href="http://www.myfonts.com/foundry/Alessio_Laiso_Type/?refby=alessiolaiso" target="_blank" class="external-nav hide-for-medium">Shop on MyFonts</a></li>
+        </ul>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a href="https://www.fontspring.com/foundry/alessio-laiso-type?refby=alessiolaiso" target="_blank"
+            type="button" class="button hide-for-small-only shop-nav-button">Go to shop</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="row header-custom-about">
+    <div class="small-12 medium-10 medium-offset-1 large-8 large-offset-2 columns">
+      <h2>Custom fonts</h2>
+    </div>
+</header>
+
+<!-- Description and buttons -->
+<section class="retail-description">
+  <div class="row">
+    <div class="small-12 medium-6 medium-offset-1 large-5 large-offset-2 columns">
+      <h4>About this font family</h4>
+      <p>Pani Sans is a contemporary type family in 18 styles designed by Alessio Laiso. It takes inspiration from 
+        Italian rationalist and art deco typefaces, bringing them into the present with the mix of its reliable 
+        geometric structure and distinctive warm personality. The italics add to the unique character of the family 
+        by featuring distinguishing calligraphic touches. </br></br>
+
+        Pani Sans is fully equipped for intense professional use for both print and digital applications. It 
+        supports 219 languages, covering 100% of the Latin Plus character set, and it ships with powerful 
+        OpenType features including beautiful small caps, ligatures, stylistic alternates, fractions, tabular 
+        figures, old-style figures, and more. The variable fonts included in 
+        the family package allow you to pick the perfect weight, for unlimited design freedom.</p>
+    </div>
+    <div class="small-12 medium-3 medium-offset-1 large-2 columns">
+      <h5>Test and buy on</h5>
+      <a href="https://www.fontspring.com/fonts/alessio-laiso-type/pani-sans?refby=alessiolaiso" target="_blank"
+            type="button" class="button shop-nav-button retail-button">Fontspring</a></li>
+      <a href="https://www.myfonts.com/fonts/alessio-laiso-type/pani-sans/?refby=alessiolaiso" target="_blank"
+            type="button" class="button shop-nav-button retail-button">MyFonts</a></li>
+            <!--<p>Limited time offer:</br>Buy now and get 60% off</p>-->
+    </div>
+  </div>
+</section>
+
+
+{% endblock%}

@@ -1008,6 +1008,16 @@ a.retail-button::after {
 //     background-color: hsl(197, 2%, 90%);
 // }
 
+//Custom and about
+
+.header-custom-about {
+    h2{
+        color: $white;
+        margin-top: rem-calc(84);
+        font-size: rem-calc(48);
+    }
+}
+
 //Prev styles
 .previous-project {
     -moz-transition: all .15s ease-out;
