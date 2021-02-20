@@ -68,7 +68,7 @@ $body-font-family: 'Pani Sans', Avenir, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
-$global-weight-normal: normal;
+$global-weight-normal: 500;
 $global-weight-bold: 800;
 $global-radius: 0;
 $global-text-direction: ltr;
@@ -1175,4 +1175,23 @@ a.download-button::after {
 
 .notfound-page {
         margin-top: 1.8rem;        
+}
+
+@media all {
+    @font-face {
+        font-family: 'Pani Sans';
+        src: url("/assets/500.woff2");
+        font-weight: 500;
+    }
+    @font-face {
+        font-family: 'Pani Sans';
+        src: url("/assets/800.woff2");
+        font-weight: 800;
+    }
+    @font-face {
+        font-family: 'Pani Sans';
+        src: url("/assets/800i.woff2");
+        font-weight: 800;
+        font-style: italic;
+    }
 }

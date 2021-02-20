@@ -4,6 +4,25 @@
 @import 'foundation';
 @import 'motion-ui';
 
+@media all {
+    @font-face {
+        font-family: 'Pani Sans';
+        src: url("/assets/500.woff2");
+        font-weight: 500;
+    }
+    @font-face {
+        font-family: 'Pani Sans';
+        src: url("/assets/800.woff2");
+        font-weight: 800;
+    }
+    @font-face {
+        font-family: 'Pani Sans';
+        src: url("/assets/800i.woff2");
+        font-weight: 800;
+        font-style: italic;
+    }
+}
+
 @include foundation-global-styles;
 // @include foundation-grid;
 @include foundation-flex-grid;
