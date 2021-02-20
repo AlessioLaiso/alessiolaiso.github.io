@@ -42,6 +42,7 @@
 //  37. Top Bar
 //  38. Custom
 
+
 @import 'util/util';
 
 // 1. Global
@@ -1175,23 +1176,4 @@ a.download-button::after {
 
 .notfound-page {
         margin-top: 1.8rem;        
-}
-
-@media all {
-    @font-face {
-        font-family: 'Pani Sans';
-        src: url("/assets/500.woff2");
-        font-weight: 500;
-    }
-    @font-face {
-        font-family: 'Pani Sans';
-        src: url("/assets/800.woff2");
-        font-weight: 800;
-    }
-    @font-face {
-        font-family: 'Pani Sans';
-        src: url("/assets/800i.woff2");
-        font-weight: 800;
-        font-style: italic;
-    }
 }
