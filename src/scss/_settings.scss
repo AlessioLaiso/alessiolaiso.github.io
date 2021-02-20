@@ -769,7 +769,6 @@ footer  {
     }
     h6 {
         margin: 3.75rem 0 0.375rem 0;
-        font-style: italic;
         text-transform: uppercase;
     }
     a {
@@ -998,6 +997,19 @@ a.retail-button {
 
 a.retail-button::after {
     margin: 0;
+}
+
+a.donation-link-aleo {
+        color: $white;
+        text-decoration: underline;
+}
+
+a.donation-link-aleo:hover, a.donation-link-aleo:focus {
+    color: $primary-color;
+}
+
+a.download-button::after {
+    background: url("/images/home/download.svg") no-repeat;
 }
 
 // //Hover animation start
