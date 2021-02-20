@@ -787,6 +787,16 @@ footer  {
         float: inherit;
         margin: 0 0 0 0.4rem;
     }
+
+    a#mail-footer:after {
+        content: "";
+        display: inline-block;
+        background: url("/images/home/mail-small.svg") no-repeat;
+        width: 0.75rem;
+        height: 0.75rem;
+        float: inherit;
+        margin: 0 0 0 0.4rem;
+    }
     // .mail-footer {
     //     a {
     //     text-decoration: underline;
@@ -1015,6 +1025,27 @@ a.retail-button::after {
         color: $white;
         margin-top: rem-calc(84);
         font-size: rem-calc(48);
+    }
+}
+
+.content-custom-about {
+    margin-top: rem-calc(30);
+    margin-bottom: rem-calc(10);
+    p, li{
+        font-size: 18px;//rem-calc(18);
+    }
+    a {
+        color: $white;
+        text-decoration: underline;
+    }
+    a:hover{
+        color: $primary-color;
+    }
+}
+
+.images-custom-about {
+    img{
+        margin-top: rem-calc(22);
     }
 }
 
