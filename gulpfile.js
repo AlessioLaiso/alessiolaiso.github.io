@@ -132,6 +132,14 @@ const imgTask = (root = "") => () =>
     .src(sourceFile("images/**/*", root))
     .pipe(gulp.dest(`dist/${root}/images`));
 
+const assetsTask = (root = "") => () =>
+  gulp
+    .src(sourceFile("assets/**/*", root))
+    .pipe(gulp.dest(`dist/${root}/assets`));
+
+
+gulp.task("assets", gulp.parallel(assetsTask()));
+
 /**
  * Copy images to dist/images folder.
  */
@@ -142,7 +150,7 @@ gulp.task("img", gulp.parallel(imgTask(), imgTask("portfolio")));
  */
 gulp.task(
   "build",
-  gulp.series("download", "sass", "js", "cname", "html", "img")
+  gulp.series("download", "sass", "js", "cname", "html", "img", "assets")
 );
 
 /**
