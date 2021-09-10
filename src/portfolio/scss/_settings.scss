@@ -928,7 +928,7 @@ footer  {
     }
 }
 
-.sleep-home:hover, .runtastic-home:hover, .aula-home:hover, .zalando-home:hover {
+.runtastic-home:hover, .aula-home:hover, .zalando-home:hover {
     background-color: #E75B39;
 }
 
@@ -955,6 +955,28 @@ footer  {
     img {
         width: 68%;
         margin: -5.5rem 1.2rem 0.5rem 8rem;
+    }
+    p {
+        margin-bottom: 1.5rem;
+    }
+    @media only screen and (max-width: 22em) {
+        h4 {
+            padding-right: 1.5rem;
+        }
+    }
+    @media only screen and (max-width: 33.125em) {
+        img {
+            margin: -5.5rem 1.2rem 0.5rem 5rem
+        }
+    }
+}
+
+.aula-home {
+    margin: 3.1rem 0 2.3rem 0;
+    padding-top: 2rem;
+    img {
+        width: 68%;
+        margin: -5.1rem 1.2rem -0.7rem 8rem;
     }
     p {
         margin-bottom: 1.5rem;
@@ -1012,7 +1034,10 @@ footer  {
     h4 {
         margin-top: 8.25rem;
     }
-}
+    @media only screen and (max-width: 64rem) {
+        margin-bottom: 2.5rem;
+        }
+    }
 
 .zalando-home {
     margin-bottom: 4.5rem;
@@ -1028,7 +1053,7 @@ footer  {
 
 
 .print-home {
-    margin-bottom: 3.25rem;
+    margin-bottom: 2rem;
     img {
         max-width: 87.7%;
         margin-top: 2.25rem;
@@ -1337,7 +1362,7 @@ p.runtastic-leaderboard-img {
     margin: 1.5rem 0;
 }
 
-//Libra
+/*Libra
 .libra-project.project-info{
     img {
         max-width: 20.06rem;
@@ -1371,7 +1396,7 @@ p.runtastic-leaderboard-img {
             max-width: 24.94rem;
         }
     }
-}
+}*/
 
 //Aleo
 
