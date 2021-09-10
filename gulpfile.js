@@ -263,9 +263,9 @@ gulp.task(
 gulp.task("watch", function(done) {
   gulp.watch([sourceFile("download/**/*")], gulp.series("download", "reload"));
   gulp.watch([sourceFile("**/*.html")], gulp.series("reload"));
-  gulp.watch([sourceFile("scss/**/*.scss")], gulp.series("sass", "reload"));
-  gulp.watch([sourceFile("js/**/*.js")], gulp.series("js", "reload"));
-  gulp.watch([sourceFile("images/**/*")], gulp.series("img", "reload"));
+  gulp.watch([sourceFile("**/*.scss")], gulp.series("sass", "reload"));
+  gulp.watch([sourceFile("**/*.js")], gulp.series("js", "reload"));
+  gulp.watch([sourceFile("images/**/*"), sourceFile("images/**/*", "portfolio")], gulp.series("img", "reload"));
   done();
 });
 
