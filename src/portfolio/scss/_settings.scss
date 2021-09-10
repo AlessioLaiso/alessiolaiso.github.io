@@ -853,10 +853,10 @@ footer  {
   background-repeat: repeat;
 }
 
-.libra-home:hover h4:before{
+/*.libra-home:hover h4:before{
   animation: stripes 1s ease;
   background-repeat: repeat;
-}
+}*/
 
 .aleo-home:hover h4:before{
   animation: stripes 1s ease;
@@ -868,15 +868,20 @@ footer  {
   background-repeat: repeat;
 }
 
-.sleep-home:hover h4:before{
+/*.sleep-home:hover h4:before{
   animation: stripes 1s ease;
   background-repeat: repeat;
-}
+}*/
 
 .print-home:hover h4:before{
   animation: stripes 1s ease;
   background-repeat: repeat;
 }
+
+.aula-home:hover h4:before{
+    animation: stripes 1s ease;
+    background-repeat: repeat;
+  }
 //Hover animation end
 
 @keyframes stripes {
@@ -885,11 +890,11 @@ footer  {
   }
 }
 
-.ibm-home:hover, .aleo-home:hover, .print-home:hover {
+.ibm-home:hover, .aleo-home:hover {
     background-color: hsl(197, 2%, 90%);
 }
 
-.libra-home, .runtastic-home { //blue BG
+.libra-home, .ryanair-home, .print-home { //blue BG
     background-color: $primary-color;
     p {
         color: white;
@@ -904,11 +909,11 @@ footer  {
     }
 }
 
-.libra-home:hover, .runtastic-home:hover {
+.libra-home:hover, .ryanair-home:hover, .print-home:hover {
     background-color: hsl(197, 49%, 28%);
 }
 
-.sleep-home, .ryanair-home, .zalando-home { //orange BG
+.sleep-home, .zalando-home, .aula-home, .runtastic-home { //orange BG
     background-color: $secondary-color;
     h4 {
         color: white;
@@ -923,7 +928,7 @@ footer  {
     }
 }
 
-.sleep-home:hover, .ryanair-home:hover, .zalando-home:hover {
+.sleep-home:hover, .runtastic-home:hover, .aula-home:hover, .zalando-home:hover {
     background-color: #E75B39;
 }
 
