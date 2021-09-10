@@ -894,7 +894,7 @@ footer  {
     background-color: hsl(197, 2%, 90%);
 }
 
-.libra-home, .ryanair-home, .print-home { //blue BG
+.ryanair-home, .print-home { //blue BG
     background-color: $primary-color;
     p {
         color: white;
@@ -909,11 +909,11 @@ footer  {
     }
 }
 
-.libra-home:hover, .ryanair-home:hover, .print-home:hover {
+.ryanair-home:hover, .print-home:hover {
     background-color: hsl(197, 49%, 28%);
 }
 
-.sleep-home, .zalando-home, .aula-home, .runtastic-home { //orange BG
+.zalando-home, .aula-home, .runtastic-home { //orange BG
     background-color: $secondary-color;
     h4 {
         color: white;
@@ -972,17 +972,17 @@ footer  {
 }
 
 .runtastic-home {
-    margin-top: 2.9rem;
+    margin-top: 1rem;
     margin-bottom: 3rem;
     @include breakpoint(medium) {
-        margin-top: 4.6rem;
+        margin-top: 3rem;
     }
     img {
         max-width: 13.625rem;
-        margin: -13.06rem 2.25rem -1rem 0;
+        margin: -10.5rem 1.25rem -1rem 4rem;
         float: right;
         @media only screen and (max-width: 22em) {
-            margin: -13.06rem 0.7rem -1rem 0; 
+            margin: -5rem 1rem -1rem 0; 
         }
         @media only screen and (max-width: 33.125em) {
             max-width: 9rem;
@@ -998,25 +998,9 @@ footer  {
     }
 }
 
-.libra-home {
-    margin-bottom: 4rem;
-    img {
-        max-width: 17.5rem;
-        margin: -6.685rem 0.44rem -2.06rem 0;
-        float: right;
-        @media only screen and (max-width: 33.125em) {
-            max-width: 13.5rem;
-            margin-top: 0;
-        }
-    }
-    h4 {
-        margin-top: 1.94rem;
-    }
-}
-
 .aleo-home {
     margin-top: 2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 0rem;
     img {
         max-width: 18.875rem;
         margin: -17rem 0.5rem 5.44rem 0;
@@ -1042,28 +1026,6 @@ footer  {
     }
 }
 
-.sleep-home {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    img {
-        max-width: 13.625rem;
-        margin: -15.4rem 0.69rem -1.25rem 0;
-        float: right;
-        @media only screen and (max-width: 33.125em) {
-                max-width: 12rem;
-                margin-top: -3rem;
-            }
-        @media only screen and (max-width: 22) {
-                margin-top: 0;
-            }
-        }
-    h4 {
-        margin-top: 5.31rem;
-        @media only screen and (max-width: 33.125em) {
-            margin-top: 2rem;
-        }
-    }
-}
 
 .print-home {
     margin-bottom: 3.25rem;
