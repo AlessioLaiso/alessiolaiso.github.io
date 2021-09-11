@@ -1012,10 +1012,13 @@ footer  {
         }
     h4 {
         margin-top: 1.94rem;
+        @media only screen and (max-width: 33.125em) {
+            width: 7rem;
+        }
     }
     p {
         @media only screen and (max-width: 33.125em) {
-            width: 5.5rem;
+            width: 7rem;
         }
     }
 }
@@ -1067,6 +1070,7 @@ footer  {
         @media only screen and (max-width: 22em) {
             margin-top: 14.5rem;;
         }
+        padding-right: 1.5rem;
     }
     p {
         margin-bottom: 1.625rem;
