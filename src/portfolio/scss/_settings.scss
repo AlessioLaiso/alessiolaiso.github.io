@@ -1375,7 +1375,7 @@ p.runtastic-leaderboard-img {
     @include breakpoint(large) {
         padding-top: 3.375rem;
     }
-}
+}*/
 
 .libra-animation {
     img {
@@ -1388,7 +1388,7 @@ p.runtastic-leaderboard-img {
         }
     }
 }
-
+/*
 .libra-reviews {
     max-width: 80%;
     @include breakpoint(medium) {
@@ -1475,6 +1475,29 @@ p.runtastic-leaderboard-img {
 .sleep-video {
     max-width: 55%;
     margin-left: 22.5%;
+}
+
+//Aula
+.aula-project.project-info{
+    img {
+        //max-width: 22rem;
+        margin: -16rem 0 -11rem 1.4rem;
+    }
+}
+
+.aula-project.project-story {
+    padding-top: 2.5rem;
+    @include breakpoint(large) {
+        padding-top: 7rem;
+    }
+
+    figcaption{
+        padding-bottom: 2rem;
+        }
+    
+    p.with-ul {
+        margin-bottom: 0;       
+    }
 }
 
 //Zalando Business Platform
