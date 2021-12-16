@@ -40,3 +40,4 @@ This script builds/compiles the website into the `dist` directory, creates a new
 ```
 
 This script will rollback the latest commit on the `master` branch and change its state back to the previous commit.
+
