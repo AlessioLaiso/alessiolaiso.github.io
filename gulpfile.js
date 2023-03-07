@@ -28,9 +28,7 @@ const sassTask = root => {
         })
       )
       .pipe(
-        $.autoprefixer({
-          browsers: ["last 2 versions", "ie >= 9"]
-        })
+        $.autoprefixer({})
       )
       .pipe(gulp.dest(`dist/${root}/css/`));
 };
@@ -157,7 +155,7 @@ gulp.task(
  * Clean dist folder.
  */
 gulp.task("clean", function() {
-  return gulp.src("dist/*", { read: false }).pipe($.clean({ force: true }));
+  return gulp.src("dist/*", { read: false, allowEmpty: true }).pipe($.clean({ force: true }));
 });
 
 gulp.task("version", function() {
@@ -200,7 +198,7 @@ gulp.task(
     return gulp.src("./dist/**/*").pipe(
       $.ghPages({
         branch: "master",
-        message: "Deployed on " + new Date().toString()
+        message: "Deployed on " + new Date().toString(), 
       })
     );
   })
@@ -214,6 +212,7 @@ gulp.task(
   gulp.series("build", function(done) {
     $.connect.server(
       {
+        host: '0.0.0.0',
         root: "dist",
         livereload: true,
         middleware: function(connect, opt) {

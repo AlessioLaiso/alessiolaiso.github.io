@@ -14,13 +14,13 @@ This branch is used by github pages for deployment.
 ## Installation
 
 ```sh
-npm i
+./scripts/setup.sh
 ```
 
 ## Running
 
 ```sh
-npm start
+./scripts/start.sh
 ```
 
 This script starts a webserver using live-reload with `dist` as server root.
@@ -40,4 +40,3 @@ This script builds/compiles the website into the `dist` directory, creates a new
 ```
 
 This script will rollback the latest commit on the `master` branch and change its state back to the previous commit.
-
