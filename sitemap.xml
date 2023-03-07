@@ -1,67 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
+        
         <loc>https://alessiolaiso.com/about.html</loc>
-        <lastmod>2021-09-10T14:15:38.177Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.379Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/aleo-font.html</loc>
-        <lastmod>2021-09-10T14:15:38.177Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.379Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/custom-fonts.html</loc>
-        <lastmod>2021-09-10T14:15:38.178Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.382Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/</loc>
-        <lastmod>2021-09-10T14:15:38.202Z</lastmod>
+    
+        
+        <lastmod>2021-02-12T08:56:44.079Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/lagu-sans.html</loc>
-        <lastmod>2021-09-10T14:15:38.203Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.496Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/lagu-serif.html</loc>
-        <lastmod>2021-09-10T14:15:38.203Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.496Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/pani-sans.html</loc>
-        <lastmod>2021-09-10T14:15:38.203Z</lastmod>
+    
+        
+        <lastmod>2021-02-12T08:56:44.080Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/about.html</loc>
-        <lastmod>2021-12-16T20:25:00.434Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.497Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/aleo-font.html</loc>
-        <lastmod>2021-12-16T20:25:00.434Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.497Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/aula.html</loc>
-        <lastmod>2021-12-16T20:25:00.434Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.498Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/graphic-design-works.html</loc>
-        <lastmod>2021-12-16T20:25:00.434Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.498Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/ibm.html</loc>
-        <lastmod>2021-12-16T20:25:00.435Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.498Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/</loc>
-        <lastmod>2021-12-16T20:25:00.442Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.507Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/runtastic.html</loc>
-        <lastmod>2021-12-16T20:25:00.442Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.507Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/ryanair-car-hire.html</loc>
-        <lastmod>2021-12-16T20:25:00.442Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.508Z</lastmod>
+    
     </url>
     <url>
+        
         <loc>https://alessiolaiso.com/portfolio/zalando-business-platform.html</loc>
-        <lastmod>2021-12-16T20:25:00.444Z</lastmod>
+    
+        
+        <lastmod>2023-03-07T04:19:18.508Z</lastmod>
+    
     </url>
 </urlset>
