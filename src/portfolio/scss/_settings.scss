@@ -848,6 +848,11 @@ footer  {
     background-repeat: repeat;
   }
 
+.hotjar-home:hover h4:before{
+    animation: stripes 1s ease;
+    background-repeat: repeat;
+  }
+
 .runtastic-home:hover h4:before{
   animation: stripes 1s ease;
   background-repeat: repeat;
@@ -913,6 +918,25 @@ footer  {
     background-color: hsl(197, 49%, 28%);
 }
 
+.hotjar-home, .print-home { //blue BG
+    background-color: $primary-color;
+    p {
+        color: white;
+    }
+    h4 {
+        color: white;
+        background-position: left top;
+        background-repeat: no-repeat;
+    }
+    h4:before {
+      background-image: url(/portfolio/images/home/wave.svg);
+    }
+}
+
+.hotjar-home:hover, .print-home:hover {
+    background-color: hsl(197, 49%, 28%);
+}
+
 .zalando-home, .aula-home, .runtastic-home { //orange BG
     background-color: $secondary-color;
     h4 {
@@ -951,6 +975,27 @@ footer  {
 }
 
 .ryanair-home {
+    margin: 5.1rem 0 2.3rem 0;
+    img {
+        width: 68%;
+        margin: -5.5rem 1.2rem 0.5rem 8rem;
+    }
+    p {
+        margin-bottom: 1.5rem;
+    }
+    @media only screen and (max-width: 22em) {
+        h4 {
+            padding-right: 1.5rem;
+        }
+    }
+    @media only screen and (max-width: 33.125em) {
+        img {
+            margin: -5.5rem 1.2rem 0.5rem 5rem
+        }
+    }
+}
+
+.home-home {
     margin: 5.1rem 0 2.3rem 0;
     img {
         width: 68%;
@@ -1054,6 +1099,17 @@ footer  {
     }
 }
 
+.hotjar-home {
+    h4 {
+        margin-top: 1.875rem;
+    }
+    img {
+        max-width: 50%;
+        margin: 0.5rem 1.7rem -2rem auto;
+        float: right;
+    }
+    margin-bottom: 3.5rem;
+}
 
 .print-home {
     margin-bottom: 2rem;
@@ -1062,11 +1118,11 @@ footer  {
     }
     img {
         max-width: 87.7%;
-        margin-top: 2.25rem;
+        margin-top: 0;
         float: right;
         }
     h4 {
-        margin-top: 18.19rem;
+        margin-top: 16rem;
         @media only screen and (max-width: 33.125em) {
             margin-top: 17.5rem;
         }
@@ -1125,10 +1181,8 @@ footer  {
 
 .project-story {
     margin: 0 auto;
-    max-width: 40.625rem;
-    @media (max-width:50.625rem) and (min-width:41.875rem) {
-        max-width: 33rem;
-    }
+    max-width: 650px;
+    
     small {
         font-size: rem-calc(13);
         color: $medium-gray;
@@ -1145,6 +1199,18 @@ footer  {
     }
     p {
         margin-bottom: 2.4375rem;
+    }
+    figure + p {
+        margin-top: -1.25rem;
+    }
+    figure {
+        width: 100%;
+        margin-bottom: 2.4375rem;
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
     }
     figcaption {
         color: $medium-gray;
@@ -1661,5 +1727,36 @@ p.runtastic-leaderboard-img {
 .notfound-page {
     nav {
         margin-top: 1.8rem;        
+    }
+}
+
+//Hotjar Activation
+.hotjar-activation-project.project-info{
+    img {
+        max-width: 125%;
+        margin: -8.6rem 0 -4rem -4.3rem;
+    }
+}
+
+.hotjar-activation-project.project-story {
+    padding-top: 2.5rem;
+    @include breakpoint(large) {
+        padding-top: 4.375rem;
+    }
+
+    figcaption{
+        padding-bottom: 2rem;
+        }
+    
+    p.with-ul {
+        margin-bottom: 0;       
+    }
+
+    figure {
+        margin-bottom: 1.4375rem;
+    }
+
+    h6 {
+        margin-top: 3.6875rem;
     }
 }

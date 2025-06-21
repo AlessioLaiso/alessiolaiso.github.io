@@ -1,0 +1,116 @@
+{% set title = "Hotjar Activation | Alessio Laiso" %}
+{% set description = "A series of projects aimed at revamping Hotjar's onboarding and activation experience. Led design efforts to guide new users from sign up to first insight, significantly improving user activation and conversion." %}
+
+{% extends "portfolio/_layout.html" %}
+{% block content %}
+<!-- Top nav -->
+<div class="fixed-custom">
+    <nav class="top-bar">
+        <a href="/portfolio" class="top-bar-title">Alessio Laiso</a>
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li class="hide-for-small-only"><a href="/portfolio">Projects</a></li>
+                <li><a href="/portfolio/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!-- Hero -->
+<header class="hero-project">
+    <div class="row">
+        <div class="medium-10 medium-offset-1 large-offset-0 large-7  columns">
+            <h1>Hotjar Activation</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 medium-10 medium-offset-1 large-offset-0 large-7 columns">
+            <p>A series of projects aimed at revamping Hotjar's onboarding and activation experience. I led the design efforts to guide new users from the moment they sign up to the moment they find their first valuable insight, measurably improving user activation and conversion.</p>
+        </div>
+    </div>
+    <div class="row project-info hotjar-activation-project">
+        <div class="small-4 medium-2 medium-offset-1 large-offset-0 columns">
+            <h5 class="first-project-info">Company</h5>
+            <p>Hotjar</p>
+        </div>
+        <div class="small-8 medium-6 large-3 columns">
+            <h5>Timeframe</h5>
+            <p>Nov 2021–Feb 2023</p>
+        </div>
+        <div class="show-for-large-only large-2 columns"></div>
+        <div class="large-5 columns">
+            <img class="show-for-large-only" src="images/hotjar/hotjar-laptop.png" alt="The new Hotjar 'For You' page on a laptop">
+        </div>
+    </div>
+</header>
+<!-- Story -->
+<section class="project-main small-12 columns">
+    <div class="project-story hotjar-activation-project">
+        <h6 id="challenges-and-goals">Challenges and goals</h6>
+        <h3>Boosting activation and delivering value early</h3>
+        <p>Hotjar empowers product and marketing teams to empathize with their users, combining quantitative data and qualitative research to uncover the 'why' behind user behaviour. However, Hotjar's onboarding for new users had significant room for improvement. Many users were getting lost during the initial setup, faced with a one-size-fits-all experience that failed to deliver immediate value. This led to low installation rates of our tracking code, the critical first step to using the product.</p>
+        <figure>
+            <img src="images/hotjar/hotjar-onboarding-mapping.png" alt="A user journey map of the old onboarding flow, highlighting user pain points.">
+            <figcaption>Mapping the original user journey revealed several points of confusion where new users would drop off.</figcaption>
+        </figure>
+        <p>A key initiative I pushed for was to define and optimize the user "golden path". We defined our "core users" as those who converted and retained best. Working with our data team, we analyzed their behavior to identify the specific steps these users took to become successful. Our primary goal was to redesign the new user experience to guide more people along this path, boosting conversion and retention.</p>
+        <p>Beyond the initial setup, we identified a second major opportunity: the main dashboard. Once a user completed the getting started guide, the page offered little guidance, becoming a static jump-off point rather than a place for discovery. For a platform that generates vast amounts of data, helping users find meaningful insights was crucial for long-term retention.</p>
+        <h6 id="my-role-and-the-team">My role and the team</h6>
+        <h3>Driving design strategy for activation</h3>
+        <p>As a Staff Product Designer, I was embedded in the Activation squad, and I oversaw design in the Conversions tribe, helping define strategy and mentoring designers in the other squads that made up the Conversions tribe. I worked closely with product, engineering, content design, and data to shape our roadmap, leading design work from discovery and research to final implementation. I championed a data-informed, experimental approach, which was key to improving our activation metrics.</p>
+        <h6 id="design-process">Design process</h6>
+        <h3>From onboarding to continuous value</h3>
+        <p>To achieve our goals, we relied heavily on a combination of qualitative research and quantitative methods like A/B and multivariate tests to iterate quickly and clearly understand the impact of our design choices. We decided to focus on a couple of key areas:</p>
+        <h4>Focus Area 1: Sign up and tracking code installation flow</h4>
+        <p>Through user research, analytics, and journey mapping, we confirmed our initial hypothesis: users were confused and didn't see the value right away. Our first challenge was getting the tracking code installed. We explored several solutions, and validated that a more focused, personalized, step-by-step approach worked best for new users.</p>
+        <figure>
+            <img src="images/hotjar/hotjar-signup-tci.png" alt="3 redesigned screens: new sign up flow, tracking code installation page and the Overview with the new Getting Started Guide.">
+            <figcaption>Some key screens from the new onboarding, showing part of the new sign up flow, tracking code installation page and the new Getting Started Guide.</figcaption>
+        </figure>
+        <p>The final solution addressed the problem from multiple angles. We introduced a dedicated Getting Started Guide (GSG) that provided clear, actionable steps. We completely overhauled the Tracking Code Installation (TCI) page, adding testimonials and addressing common user objections to build trust. 
+            A key improvement was introducing personalization based on factors like user goals, company size and more, which allowed us to tailor the setup instructions and increase relevance. We also created a dynamic system of unobtrusive prompts to push users to take the actions that we identified in our "Golden path" analysis, like inviting team members or creating "highlights".</p>
+        <figure>
+            <img src="images/hotjar/hotjar-activation-toolkit.png" alt="Design specs for guide card, suggestion tile, and floating panel.">
+            <figcaption>Some components from the Hotjar Activation Toolkit (HAT), with clear guidelines for their use.</figcaption>
+        </figure>
+        <p>To encourage deeper engagement beyond the initial setup, we also designed a set of patterns and components named Hotjar Activation Toolkit (HAT) that other teams could easily use across various areas of the product. All of this work also had a considerable impact on the look and feel of Hotjar because it was the first time that the recent rebranding was borught into the product in a prominent way.</p>
+        <h4>Focus Area 2: The "For You" page</h4>
+        <p>The old 'Overview' page was static and didn't help users navigate the wealth of data Hotjar provides. Our vision was to create a dynamic, personalized hub. After exploring various drafts, including a full-screen "featured insights" concept that proved too overwhelming, we landed on the "For You" page.</p>
+        <figure>
+            <img src="images/hotjar/hotjar-for-you.png" alt="Two screenshots of the 'For You' page.">
+            <figcaption>The new page shown before and after tracking code installation, showing relevant personalized content throughout the user's journey.</figcaption>
+        </figure>
+        <p>This new page adapts to the user's journey and is tailored to the user's goals and their expertise with Hotjar. Before the tracking code is installed, it provides clear guidance and steps to get set up. After installation, it transforms into a powerful dashboard. It features relevant articles and guides, and uses a recommendation engine, whose rules I helped define, to surface key insights from the user's data, helping them discover the "aha!" moments without having to dig for them.</p>
+        <h6 id="outcomes">Outcomes</h6>
+        <h3>Driving significant growth in activation and conversion</h3>
+        <p>Our systematic, user-centred approach to activation paid off, delivering significant, measurable improvements across the entire funnel.</p>
+        <ul>
+            <li>The first version of the new Getting Started Guide increased tracking code installs by +2.8% and drove a +10.1% uplift in paid conversion. Adding personalization and testimonials to the setup flow further boosted installations by +3.12% and +5.25% respectively.</li>
+            <li>Engagement with core features skyrocketed. The new suggestion tiles led to a +21.48% adoption of our Events API and a +38.17% increase in users creating their first Highlight. Our redesigned empty states were also a huge success, lifting new core user conversion by +10.69% and new subscriptions by +6.32%.</li>
+            <li>The "For You" page proved to be a powerful engine for retention. It increased the number of core users in their first week by +15%, and it contributed to a +6.16% increase in new core users and a +7.51% uplift in new subscriptions.</li>
+        </ul>
+        <figure>
+            <div class="responsive-embed widescreen">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/-rMF9Rx1Ai8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <figcaption>You can learn more about my work on Hotjar's Activation in this interview I gave for an episode of Appcues' Behind The Experience podcast.</figcaption>
+        </figure>
+        <h6 id="project-emerald">One more thing: Project Emerald</h6>
+        <h3>Defining Hotjar's Product Direction</h3>
+        <p>Beyond my work on the Activation team, I initiated and led Project Emerald, a company-wide strategic initiative to define a cohesive product direction for Hotjar. While individual squads were shipping excellent work, the company had many siloed visions and lacked a single North Star to align them. As I put it, “we’re building beautiful houses, but we’re not planning the city.”</p>
+        <figure>
+            <img src="images/hotjar/emerald-workshop.jpg" alt="People and sticky notes in a design thinking workshop.">
+            <figcaption>Photos from a design thinking workshop I facilitated during an offsite, to brainstorm around the new product direction.</figcaption>
+        </figure>
+        <p>The goal was to create a product direction that was both aspirational and realistic, built collaboratively with input from senior leadership and the broader team from the start. I designed and facilitated a series of async and in-person workshops, bringing together stakeholders from across the company to contribute. We synthesized hundreds of ideas into two core opportunity statements: making insights actionable, and clarifying the value of our multi-product offering.</p>
+        <p>These statements formed the foundation of a new Product Direction I drafted, which centered on four pillars: Value, Understanding, Ease-of-use, and Seamlessness. The final deliverables from Project Emerald were presented to the executive team and used as a primary input for shaping Hotjar's official, long-term product vision, creating a shared language and strategy for the future of the product.</p>
+    </div>
+</section>
+<!-- Project nav -->
+<nav class="project-nav expanded row">
+    <div class="small-6 columns"></div>
+    <a class="next-project small-6 columns" href="/portfolio/aula">
+        <p class="project-nav-text next-nav-text">Next</p>
+        <p class="project-nav-title next-title">Aula</p>
+    </a>
+</nav>
+{% endblock %} 
