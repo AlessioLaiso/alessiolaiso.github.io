@@ -1227,6 +1227,46 @@ footer  {
     a:hover {
         color: $primary-color;
         }
+
+    // Breakout media: allow direct child figures, videos, and embeds to be up to 1000px wide and centered on large screens only
+    > figure,
+    > .responsive-embed,
+    > video {
+        position: relative;
+        left: 50%;
+        right: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        @include breakpoint(large) {
+            max-width: 1000px;
+            width: 100vw;
+        }
+    }
+    // For images inside figure
+    > figure > img {
+        width: 100%;
+        max-width: 650px;
+        display: block;
+        @include breakpoint(large) {
+            max-width: 1000px;
+        }
+    }
+    // For iframes inside .responsive-embed
+    > .responsive-embed,
+    > .responsive-embed iframe {
+        width: 100%;
+        max-width: 650px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        @include breakpoint(large) {
+            max-width: 1000px;
+        }
+    }
 }
 
 .p-between-img { //to space paragraphs between two images
@@ -1759,4 +1799,23 @@ p.runtastic-leaderboard-img {
     h6 {
         margin-top: 3.6875rem;
     }
+}
+
+// Utility class for 650px-wide media in project-story
+.media-narrow {
+  max-width: 650px !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+// Fix for centering images in .media-narrow.libra-animation
+.media-narrow.libra-animation img {
+  margin-left: auto !important;
+}
+
+// Ensure figcaption is left-aligned in this case
+.media-narrow.libra-animation figcaption {
+  text-align: left;
 }
