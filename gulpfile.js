@@ -4,6 +4,7 @@ var sitemap = require("gulp-sitemap");
 var save = require("gulp-save");
 var fs = require("fs");
 var path = require("path");
+var { PassThrough } = require("stream");
 
 const sourceFile = (files, subfolder = "") =>
   path.join("src", subfolder, files);
@@ -16,7 +17,8 @@ const SASS_PATHS = [
   "node_modules/motion-ui/src"
 ];
 
-const pipeIfDev = pipe => (deploy ? $.util.noop() : pipe);
+const noop = () => new PassThrough({ objectMode: true });
+const pipeIfDev = pipe => (deploy ? noop() : pipe);
 const sassTask = root => {
   return () =>
     gulp
@@ -37,24 +39,22 @@ const sassTask = root => {
  */
 gulp.task("sass", gulp.parallel(sassTask(""), sassTask("portfolio")));
 
-const jsFiles = root => [
+const jsFiles = [
   "node_modules/jquery/dist/jquery.js",
   "node_modules/foundation-sites/dist/js/foundation.js",
-  sourceFile("js/**/*.js", root)
+  sourceFile("js/**/*.js")
 ];
-const jsTask = root => {
-  return () =>
-    gulp
-      .src(jsFiles(root))
-      .pipe($.concat("app.js", { newLine: "" }))
-      .pipe(deploy ? $.uglify() : $.util.noop())
-      .pipe(gulp.dest(`dist/${root}/js/`));
-};
 
 /**
  * Minify js files and copy them to dist/js folder.
  */
-gulp.task("js", gulp.parallel(jsTask(""), jsTask("portfolio")));
+gulp.task("js", function() {
+  return gulp
+    .src(jsFiles)
+    .pipe($.concat("app.js", { newLine: "" }))
+    .pipe(deploy ? $.uglify() : noop())
+    .pipe(gulp.dest("dist/js/"));
+});
 
 const downloadTask = root => () =>
   gulp
