@@ -39,7 +39,6 @@ gulp.task("sass", gulp.parallel(sassTask(""), sassTask("portfolio")));
 
 const jsFiles = root => [
   "node_modules/jquery/dist/jquery.js",
-  "node_modules/scroll-depth/jquery.scrolldepth.js",
   "node_modules/foundation-sites/dist/js/foundation.js",
   sourceFile("js/**/*.js", root)
 ];

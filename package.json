@@ -24,8 +24,7 @@
     "gulp-util": "^3.0.8",
     "gulp-version-number": "^0.2.0",
     "motion-ui": "^2.0.2",
-    "sass": "^1.25.0",
-    "scroll-depth": "^1.2.0"
+    "sass": "^1.25.0"
   },
   "scripts": {
     "build": "gulp build",
